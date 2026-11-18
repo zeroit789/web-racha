@@ -65,7 +65,7 @@ También se puede abrir `index.html` directamente con el navegador (`file://`); 
 
 ### Créditos y licencias
 
-- **Código:** licencia MIT (ver `LICENSE`).
+- **Código:** licencia MIT (ver `LICENSE`). Los avisos sobre lo que no cubre (imágenes, tipografía y marca) están en [`NOTICE.md`](NOTICE.md).
 - **Fotos y vídeo:** Wikimedia Commons, con licencias CC BY-SA 4.0, CC BY 2.0 y CC0. Detalle por imagen en `creditos.html` y `CREDITOS.md`. Las obras CC BY-SA se comparten con la misma licencia.
 - **Tipografía:** Bricolage Grotesque, de Mathieu Triay (The Bricolage Grotesque Project Authors), con licencia SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
 
@@ -132,6 +132,6 @@ You can also open `index.html` straight in the browser (`file://`); headers do n
 
 ### Credits and licences
 
-- **Code:** MIT licence (see `LICENSE`).
+- **Code:** MIT licence (see `LICENSE`). Notices on what it does not cover (images, typeface and brand) are in [`NOTICE.md`](NOTICE.md).
 - **Photos and video:** Wikimedia Commons, under CC BY-SA 4.0, CC BY 2.0 and CC0. Per-image detail in `creditos.html` and `CREDITOS.md`. CC BY-SA works are shared under the same licence.
 - **Typeface:** Bricolage Grotesque by Mathieu Triay (The Bricolage Grotesque Project Authors), under the SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).

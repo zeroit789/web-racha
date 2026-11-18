@@ -113,12 +113,12 @@
     // Sin viento o con temporal (más de 33 nudos) no se recomienda cometa / No kite with no wind or a gale (over 33 knots)
     r.cometa = (kn < 8 || kn > 33) ? 'Ninguna' : metros(kn) + ' m²';
 
-    if (kn < 8) r.curso = 'Sin viento: no hay clase y no se cobra';
+    if (kn < 8) r.curso = 'Sin viento, no hay clase y no se cobra';
     else if (kn < 12) r.curso = 'Bautismo con cometa grande';
     else if (lev ? kn <= 18 : kn <= 22) r.curso = lev ? 'Curso de iniciación, en grupos de dos' : 'Curso de iniciación';
     else if (lev ? kn <= 25 : kn <= 27) r.curso = lev ? 'Perfeccionamiento, con lancha en el agua' : 'Perfeccionamiento';
     else if (kn <= 33) r.curso = 'Solo alquiler, para quien navega solo';
-    else r.curso = lev ? 'Hoy manda el Levante: nadie sale al agua' : 'Temporal de Poniente: hoy no se sale';
+    else r.curso = lev ? 'Hoy manda el Levante y nadie sale al agua' : 'Temporal de Poniente y nadie sale al agua';
 
     if (lev) {
       if (kn < 15) r.mar = 'Viento de costado desde tierra y agua bastante plana';
@@ -174,7 +174,14 @@
     var r = actualizar();
     if (!resumen) return;
     var nombre = estado.dir === 'levante' ? 'Levante' : 'Poniente';
-    resumen.textContent = nombre + ' de ' + estado.kn + ' nudos: ' + r.playa + ', ' + r.curso.toLowerCase() + ', cometa ' + r.cometa.toLowerCase() + '.';
+    var cabeza = nombre + ' de ' + estado.kn + ' nudos: ';
+    // Solo la primera letra en minúscula: «Levante» y «Poniente» conservan la mayúscula.
+    // Only the first letter in lower case: "Levante" and "Poniente" keep their capital.
+    var curso = r.curso.charAt(0).toLowerCase() + r.curso.slice(1);
+    // Sin viento o con temporal no hay playa ni cometa que recomendar: la frase lo dice sin más.
+    // With no wind or a gale there is no beach or kite to recommend: the sentence just says so.
+    if (estado.kn < 8 || estado.kn > 33) resumen.textContent = cabeza + curso + '.';
+    else resumen.textContent = cabeza + r.playa + ', ' + curso + ', con cometa de ' + r.cometa + '.';
   }
 
   if (form) {

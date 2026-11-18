@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This licence covers the code only (HTML, CSS, JavaScript and server.js).
-Esta licencia cubre solo el código (HTML, CSS, JavaScript y server.js).
-
-- Photos and video keep their own licences (CC BY-SA 4.0, CC BY 2.0, CC0); see
-  creditos.html and CREDITOS.md. / Las fotos y el vídeo conservan su licencia;
-  ver creditos.html y CREDITOS.md.
-- The Bricolage Grotesque font file in assets/fonts/ is by The Bricolage Grotesque
-  Project Authors and is licensed under the SIL Open Font License 1.1
-  (assets/fonts/OFL.txt), not under this licence. / El fichero de la tipografía
-  Bricolage Grotesque tiene su propia licencia (SIL OFL 1.1, assets/fonts/OFL.txt),
-  no esta.

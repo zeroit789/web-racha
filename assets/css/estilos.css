@@ -671,22 +671,24 @@ html.pausa .intro__pic img, html.pausa .m-flecha { animation-play-state: paused;
   .parte__row--wide dd { font-size: var(--step-lead); }
   .stage__flags { width: 34%; bottom: -18%; }
 
-  /* Cursos: el título se vuelve una barra fija / Courses: heading becomes a sticky bar */
+  /* Cursos: en móvil el título va en su sitio, sin fijarse arriba, para no tapar ni cortar el texto
+     que pasa por debajo; el botón «Ver los cursos» deja aire antes del primer curso.
+     Courses: on phones the heading stays in place, not pinned to the top, so it never covers or cuts
+     the text scrolling under it; the "Ver los cursos" button leaves room before the first course. */
   .cursos { padding: 0 var(--m) 80px; }
   .cursos__grid { grid-template-columns: 1fr; gap: 0; }
   .cursos__side { display: contents; }
   .cursos__pic { display: none; }
   .cursos__h {
     grid-column: 1;
-    position: sticky;
-    top: 0;
-    z-index: 2;
+    position: static;
     max-width: none;
-    margin: 0 calc(var(--m) * -1) 32px;
+    margin: 0 calc(var(--m) * -1) 24px;
     padding: 12px var(--m);
     font-size: var(--step-head);
     background: var(--grey);
   }
+  .cursos__side > .btn { grid-column: 1; margin-bottom: 56px; }
   .cursos__list { grid-column: 1; gap: 72px; }
   .curso__row, .curso--flip .curso__row { flex-direction: column; gap: 20px; }
   .curso__pic { flex: none; width: 100%; aspect-ratio: 4 / 3; }
@@ -704,7 +706,9 @@ html.pausa .intro__pic img, html.pausa .m-flecha { animation-play-state: paused;
   .dudas { padding: 80px var(--m); grid-template-columns: 1fr; }
   .dudas__h, .fichas { grid-column: 1; }
   .dudas__h { font-size: var(--step-head); margin-bottom: 40px; }
-  .ficha { --tab-w: 120px; padding-bottom: 32px; }
+  /* El relleno de abajo cubre la pestaña de la ficha siguiente, que se monta encima: así no tapa la pregunta.
+     The bottom padding covers the next card's tab, which overlaps it: so it never hides the question. */
+  .ficha { --tab-w: 120px; padding-bottom: calc(var(--tab-h) + 12px); }
   .ficha summary { padding: 0 20px; }
   .ficha__tab { padding: 0 12px; }
   .ficha__q { min-height: 52px; }
@@ -855,7 +859,9 @@ html.pausa .intro__pic img, html.pausa .m-flecha { animation-play-state: paused;
   text-decoration: none;
 }
 .menu-movil a[aria-current="page"] { color: var(--mint); }
-.menu-movil .btn { margin-top: auto; align-self: stretch; }
+/* El botón del menú conserva su relleno y su tamaño de botón (la regla de los enlaces grandes no le toca).
+   The menu button keeps its own padding and button size (the big-link rule does not apply to it). */
+.menu-movil .btn { margin-top: auto; align-self: stretch; display: flex; padding: 0 28px; font-size: var(--step-lead); letter-spacing: -0.01em; }
 html.menu-abierto { overflow: hidden; }
 
 /* ---------- Pie común: lista legal / Common footer: legal list ---------- */
@@ -994,6 +1000,12 @@ html.menu-abierto { overflow: hidden; }
 .m-playa { fill: var(--paper); }
 .m-texto { font-family: "Bricolage Grotesque", Arial, sans-serif; font-weight: 800; font-size: 32px; fill: var(--ink); }
 .m-texto--peq { font-size: 24px; font-weight: 500; }
+/* En móvil el esquema se encoge a un tercio: los rótulos crecen para quedar en unos 13–15 px reales.
+   On phones the map shrinks to a third: labels grow to end up around 13–15px on screen. */
+@media (max-width: 760px) {
+  .m-texto { font-size: 44px; }
+  .m-texto--peq { font-size: 38px; font-weight: 600; }
+}
 .m-spot { fill: var(--paper); stroke: var(--ink); stroke-width: 4; transition: fill var(--t-ui) ease; }
 .m-spot.is-activo { fill: var(--mint); }
 .m-flecha { stroke: var(--ink); stroke-width: 5; fill: none; }
