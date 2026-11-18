@@ -1,0 +1,182 @@
+<!doctype html>
+<!--
+  sobre-nosotros.html: Historia, equipo, lugar y valores / About
+  Racha es una marca ficticia: web de demostración de danimefle.com.
+  Racha is a fictitious brand: demo site by danimefle.com.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre nosotros · Racha, escuela de kite en Tarifa</title>
+  <meta name="description" content="Una caseta, una lancha y dos vientos: cómo trabaja Racha, quién da las clases y lo que no negociamos.">
+  <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://racha.danimefle.com/sobre-nosotros.html">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Racha">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://racha.danimefle.com/sobre-nosotros.html">
+  <meta property="og:title" content="Sobre nosotros · Racha, escuela de kite en Tarifa">
+  <meta property="og:description" content="Una caseta, una lancha y dos vientos: cómo trabaja Racha, quién da las clases y lo que no negociamos.">
+  <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-sobre.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Valdevaqueros visto desde la sierra de Tarifa">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobre nosotros · Racha, escuela de kite en Tarifa">
+  <meta name="twitter:description" content="Una caseta, una lancha y dos vientos: cómo trabaja Racha, quién da las clases y lo que no negociamos.">
+  <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-sobre.jpg">
+  <meta name="theme-color" content="#a7ff9c">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes propias y estilos / Self-hosted fonts and styles -->
+  <link rel="preload" href="assets/fonts/BricolageGrotesque-v9-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <!-- Clase js antes de pintar; analítica Plausible sin cookies; scripts de la página -->
+  <!-- js class before painting; cookie-free Plausible analytics; page scripts -->
+  <script src="assets/js/temprano.js"></script>
+  <script defer data-domain="racha.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+  <script src="assets/js/movimiento.js" defer></script>
+</head>
+<body>
+
+<!-- ===================== BARRA COMÚN / COMMON BAR ===================== -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <a class="barra__marca" href="index.html" aria-label="Racha, inicio">racha</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <ul class="barra__links">
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
+  <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<!-- Menú del móvil: diálogo con foco atrapado; Escape lo cierra / Phone menu: dialog with focus trap; Escape closes it -->
+<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <button class="menu-movil__cerrar" type="button">Cerrar</button>
+  <nav aria-label="Menú del móvil">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="contacto.html#formulario">Reservar</a>
+</div>
+
+<main id="contenido" tabindex="-1">
+<!-- ===================== CABECERA / HEAD ===================== -->
+<section class="cabeza cabeza--menta" aria-labelledby="t-pagina">
+  <h1 class="cabeza__h" id="t-pagina" data-r style="--i:0">una caseta y dos vientos</h1>
+  <div class="cabeza__txt" data-r style="--i:1">
+    <p class="cabeza__lead">Somos una escuela pequeña a propósito: pocos alumnos por monitor, material revisado cada mañana y la playa que pida el viento.</p>
+  </div>
+</section>
+
+<!-- Foto a sangre con pie sobre banda negra / Full-bleed photo with caption on a black band -->
+<figure class="foto-ancha">
+  <img src="assets/img/valdevaqueros.webp" width="1600" height="900" alt="La ensenada de Valdevaqueros vista desde la sierra, con el pinar y el mar al fondo" loading="lazy" decoding="async">
+  <figcaption>Valdevaqueros desde la sierra: la playa de los días de Levante. Foto: El Pantera (CC BY-SA 4.0).</figcaption>
+</figure>
+
+<!-- ===================== HISTORIA / STORY ===================== -->
+<section class="bloque" aria-labelledby="t-historia">
+  <div class="historia">
+    <div class="historia__h">
+      <h2 class="bloque__h" id="t-historia" data-r style="--i:0">cómo empezó</h2>
+      <figure class="historia__pic" data-r style="--i:1"><img src="assets/img/lances-cometas.webp" width="1600" height="1200" alt="Cometas de colores tendidas en la arena de Los Lances, con gente alrededor y la sierra al fondo" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="historia__txt" data-r style="--i:1">
+      <p>Racha empezó como un remolque con tres cometas y un toldo al final de Los Lances. Daba clase quien tenía el día libre, y el único plan era no meter a nadie en el agua con un viento que no tocaba.</p>
+      <p>Esa regla sigue igual. Hoy tenemos una caseta de madera, una lancha para los días de Levante, radios en todos los cascos y material para doce alumnos a la vez. No queremos más: con más gente en el agua no se puede mirar a cada uno.</p>
+      <p>Cada mañana a las nueve alguien sale a la arena, mira el parte, mira el agua y escribe a los alumnos con la playa y la hora. Si no sopla, se dice pronto y no se cobra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EQUIPO: oficios, sin caras / TEAM: trades, no faces ===================== -->
+<section class="bloque bloque--negro oscuro" aria-labelledby="t-equipo">
+  <h2 class="bloque__h" id="t-equipo" data-r style="--i:0">quién está en la playa</h2>
+  <ul class="equipo">
+    <li data-r style="--i:0"><span class="equipo__nombre">Nerea</span><p><strong>Monitora y jefa de playa.</strong> Decide cada mañana dónde se da la clase y quién entra al agua. Da la iniciación casi todos los días.</p></li>
+    <li data-r style="--i:1"><span class="equipo__nombre">Iván</span><p><strong>Patrón de la lancha.</strong> Los días de Levante está en el agua antes que nadie. Si una cometa se va hacia fuera, la recoge él.</p></li>
+    <li data-r style="--i:2"><span class="equipo__nombre">Lucía</span><p><strong>Monitora de perfeccionamiento.</strong> Graba las sesiones y las repasa contigo en la arena, fotograma a fotograma si hace falta.</p></li>
+    <li data-r style="--i:3"><span class="equipo__nombre">Pablo</span><p><strong>Taller y alquiler.</strong> Revisa líneas, válvulas y barras cada mañana, y decide qué cometa sale según el viento.</p></li>
+  </ul>
+</section>
+
+<!-- ===================== EL LUGAR / THE PLACE ===================== -->
+<section class="bloque" aria-labelledby="t-lugar">
+  <div class="spot">
+    <figure class="spot__pic" data-r style="--i:0"><img src="assets/img/estrecho.webp" width="1400" height="933" alt="El Estrecho desde la sierra de Tarifa, con la playa abajo y la costa de Marruecos enfrente" loading="lazy" decoding="async"></figure>
+    <div class="spot__txt" data-r style="--i:1">
+      <h2 class="spot__h" id="t-lugar">el lugar</h2>
+      <p>Tarifa es la punta sur de Europa, con África enfrente. El Estrecho hace de embudo y el viento casi nunca falta: el Levante llega del Mediterráneo, seco, cálido y a rachas; el Poniente llega del Atlántico, más fresco y más constante.</p>
+      <p>Entre los dos se reparten la semana, y por eso no tenemos una playa fija: con Levante, Valdevaqueros; con Poniente, Los Lances.</p>
+      <a class="btn btn--ink" href="spots.html">Ver los spots</a>
+    </div>
+  </div>
+</section>
+
+<!-- Foto a sangre de la duna con pie sobre banda negra / Full-bleed dune photo with caption on a black band -->
+<figure class="foto-ancha">
+  <img src="assets/img/duna.webp" width="1600" height="1092" alt="La arena de la duna de Valdevaqueros, rizada por el viento, con matas de barrón" loading="lazy" decoding="async">
+  <figcaption>La duna de Valdevaqueros: así deja la arena una semana de Levante. Foto: Basilievich (CC BY 2.0).</figcaption>
+</figure>
+
+<!-- ===================== VALORES / VALUES ===================== -->
+<section class="bloque bloque--gris" aria-labelledby="t-valores">
+  <h2 class="bloque__h" id="t-valores" data-r style="--i:0">lo que no negociamos</h2>
+  <ul class="valores">
+    <li class="valor" data-r style="--i:0"><p class="valor__t">Si no sopla, no se cobra</p><p>La clase se mueve a otro día de tu semana o se devuelve el dinero. Te avisamos a las nueve, no en la playa.</p></li>
+    <li class="valor" data-r style="--i:1"><p class="valor__t">Cuatro alumnos por monitor, como mucho</p><p>En perfeccionamiento, dos. Con más gente el monitor deja de verte y deja de corregirte.</p></li>
+    <li class="valor" data-r style="--i:2"><p class="valor__t">Radio desde el primer minuto</p><p>En el agua no se oye nada. Con radio en el casco te corregimos mientras navegas, no después.</p></li>
+    <li class="valor" data-r style="--i:3"><p class="valor__t">Lancha con Levante</p><p>El Levante sopla de tierra hacia el mar. Esos días hay siempre una lancha en el agua, sin excepción.</p></li>
+    <li class="valor" data-r style="--i:4"><p class="valor__t">Material revisado cada mañana</p><p>Líneas, barra, sistema de suelta y válvulas. Lo que no pasa la revisión no sale de la caseta.</p></li>
+    <li class="valor" data-r style="--i:5"><p class="valor__t">Te decimos lo que no te toca</p><p>Si el viento es demasiado para tu nivel, te lo decimos aunque eso suponga no vender la clase.</p></li>
+  </ul>
+</section>
+</main>
+
+<!-- ===================== PIE COMÚN / COMMON FOOTER ===================== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__inv">
+      <h2 class="pie__h" data-r style="--i:0">¿sopla mañana?<br>vente.</h2>
+      <a class="btn" data-r style="--i:1" href="contacto.html#formulario">Escríbenos</a>
+    </div>
+    <ul class="pie__links" data-r style="--i:2">
+      <li><a class="lnk" href="cursos.html">Cursos</a></li>
+      <li><a class="lnk" href="spots.html">Spots</a></li>
+      <li><a class="lnk" href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a class="lnk" href="contacto.html">Contacto</a></li>
+      <li><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></li>
+    </ul>
+  </div>
+  <!-- El nombre a todo el ancho, entero / The name across the full width, whole -->
+  <p class="pie__mark" aria-hidden="true"><span data-r style="--i:0">racha</span></p>
+  <!-- Aviso de demostración y enlaces legales / Demo notice and legal links -->
+  <div class="pie__legal">
+    <p class="pie__demo">Marca ficticia. Web de demostración de <a class="lnk" href="https://danimefle.com">danimefle.com</a></p>
+    <ul>
+      <li><a class="lnk" href="aviso-legal.html">Aviso legal</a></li>
+      <li><a class="lnk" href="privacidad.html">Privacidad</a></li>
+      <li><a class="lnk" href="cookies.html">Cookies</a></li>
+      <li><a class="lnk" href="creditos.html">Créditos</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

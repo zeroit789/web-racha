@@ -1,0 +1,6 @@
+# robots.txt: se permite rastrear para que los buscadores vean el «noindex» de cada página.
+# robots.txt: crawling is allowed so search engines can see each page's "noindex".
+User-agent: *
+Allow: /
+
+Sitemap: https://racha.danimefle.com/sitemap.xml

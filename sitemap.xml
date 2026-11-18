@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sitemap.xml: páginas de la web de demostración de Racha / pages of the Racha demo site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://racha.danimefle.com/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/cursos.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/spots.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/sobre-nosotros.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/contacto.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/creditos.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/aviso-legal.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/privacidad.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://racha.danimefle.com/cookies.html</loc><lastmod>2026-11-18</lastmod></url>
+</urlset>

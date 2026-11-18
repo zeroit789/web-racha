@@ -1,0 +1,134 @@
+<!doctype html>
+<!--
+  privacidad.html: Política de privacidad / Privacy policy
+  Racha es una marca ficticia: web de demostración de danimefle.com.
+  Racha is a fictitious brand: demo site by danimefle.com.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacidad · Racha (web de demostración)</title>
+  <meta name="description" content="Esta web de demostración no guarda datos personales: el formulario no envía nada y la analítica no usa cookies ni guarda la IP.">
+  <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://racha.danimefle.com/privacidad.html">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Racha">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://racha.danimefle.com/privacidad.html">
+  <meta property="og:title" content="Privacidad · Racha (web de demostración)">
+  <meta property="og:description" content="Esta web de demostración no guarda datos personales: el formulario no envía nada y la analítica no usa cookies ni guarda la IP.">
+  <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-portada.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Racha, escuela de kitesurf en Tarifa">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacidad · Racha (web de demostración)">
+  <meta name="twitter:description" content="Esta web de demostración no guarda datos personales: el formulario no envía nada y la analítica no usa cookies ni guarda la IP.">
+  <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-portada.jpg">
+  <meta name="theme-color" content="#a7ff9c">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes propias y estilos / Self-hosted fonts and styles -->
+  <link rel="preload" href="assets/fonts/BricolageGrotesque-v9-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <!-- Clase js antes de pintar; analítica Plausible sin cookies; scripts de la página -->
+  <!-- js class before painting; cookie-free Plausible analytics; page scripts -->
+  <script src="assets/js/temprano.js"></script>
+  <script defer data-domain="racha.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+  <script src="assets/js/movimiento.js" defer></script>
+</head>
+<body>
+
+<!-- ===================== BARRA COMÚN / COMMON BAR ===================== -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <a class="barra__marca" href="index.html" aria-label="Racha, inicio">racha</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <ul class="barra__links">
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
+  <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<!-- Menú del móvil: diálogo con foco atrapado; Escape lo cierra / Phone menu: dialog with focus trap; Escape closes it -->
+<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <button class="menu-movil__cerrar" type="button">Cerrar</button>
+  <nav aria-label="Menú del móvil">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="contacto.html#formulario">Reservar</a>
+</div>
+
+<main id="contenido" tabindex="-1">
+<!-- ===================== CABECERA / HEAD ===================== -->
+<section class="cabeza cabeza--gris" aria-labelledby="t-pagina">
+  <h1 class="cabeza__h" id="t-pagina">privacidad</h1>
+  <div class="cabeza__txt">
+    <p class="cabeza__lead">Esta web no guarda datos personales: el formulario no envía nada y la analítica no usa cookies.</p>
+  </div>
+</section>
+
+<!-- ===================== TEXTO / TEXT ===================== -->
+<section class="texto" aria-label="Texto de la política de privacidad">
+  <div class="texto__cuerpo">
+    <h2>Responsable</h2>
+    <p>Daniel Castaños Mefle, titular de este sitio de demostración. Sus datos de contacto están en el <a href="https://danimefle.com/aviso-legal">aviso legal de danimefle.com</a>.</p>
+    <h2>El formulario de contacto</h2>
+    <p>El formulario de la página de contacto es de demostración. Lo que escribas se comprueba en tu propio navegador y, al pulsar «Enviar», se borra. No se manda a ningún servidor, no se guarda y nadie lo lee.</p>
+    <h2>Analítica</h2>
+    <p>Para saber cuántas visitas tiene la web usamos Plausible, servido desde analytics.danimefle.com. Plausible no usa cookies ni guarda tu dirección IP. Para contar visitantes únicos usa la IP y el navegador durante la visita para calcular un identificador anónimo que cambia cada día y no se guarda; con eso solo se ven cifras agregadas (páginas vistas, país, tipo de dispositivo y página de procedencia). Como analytics.danimefle.com es una instalación propia, el responsable de ese recuento es el titular del sitio.</p>
+    <h2>Correos</h2>
+    <p>La dirección hola@racha.example es de ejemplo y no recibe mensajes.</p>
+    <h2>Tus derechos</h2>
+    <p>Como no guardamos datos personales tuyos, no hay datos guardados que consultar, corregir o borrar. Si tienes cualquier duda sobre esta web, puedes escribir al titular a través de <a href="https://danimefle.com">danimefle.com</a>.</p>
+  </div>
+</section>
+</main>
+
+<!-- ===================== PIE COMÚN / COMMON FOOTER ===================== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__inv">
+      <h2 class="pie__h" data-r style="--i:0">¿sopla mañana?<br>vente.</h2>
+      <a class="btn" data-r style="--i:1" href="contacto.html#formulario">Escríbenos</a>
+    </div>
+    <ul class="pie__links" data-r style="--i:2">
+      <li><a class="lnk" href="cursos.html">Cursos</a></li>
+      <li><a class="lnk" href="spots.html">Spots</a></li>
+      <li><a class="lnk" href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a class="lnk" href="contacto.html">Contacto</a></li>
+      <li><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></li>
+    </ul>
+  </div>
+  <!-- El nombre a todo el ancho, entero / The name across the full width, whole -->
+  <p class="pie__mark" aria-hidden="true"><span data-r style="--i:0">racha</span></p>
+  <!-- Aviso de demostración y enlaces legales / Demo notice and legal links -->
+  <div class="pie__legal">
+    <p class="pie__demo">Marca ficticia. Web de demostración de <a class="lnk" href="https://danimefle.com">danimefle.com</a></p>
+    <ul>
+      <li><a class="lnk" href="aviso-legal.html">Aviso legal</a></li>
+      <li><a class="lnk" href="privacidad.html">Privacidad</a></li>
+      <li><a class="lnk" href="cookies.html">Cookies</a></li>
+      <li><a class="lnk" href="creditos.html">Créditos</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

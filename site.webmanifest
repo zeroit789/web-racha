@@ -1,0 +1,15 @@
+{
+  "name": "Racha · Escuela de kitesurf en Tarifa (demostración)",
+  "short_name": "Racha",
+  "description": "Web de demostración de una escuela de kitesurf ficticia en Tarifa.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#a7ff9c",
+  "icons": [
+    { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "assets/favicon-32.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "assets/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

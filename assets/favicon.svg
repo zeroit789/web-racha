@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon de Racha: una cometa de arco negra, inclinada por el viento, sobre el menta de la marca -->
+  <!-- Racha favicon: a black arc kite, tilted by the wind, on the brand mint -->
+  <rect width="64" height="64" fill="#a7ff9c"/>
+  <g transform="rotate(-14 32 32)">
+    <!-- Cometa / Kite -->
+    <path d="M7 24 Q32 -2 57 24 L50 30 Q32 11 14 30 Z" fill="#000"/>
+    <!-- Líneas hasta el rider / Lines down to the rider -->
+    <path d="M14 30 L38 60 M50 30 L38 60" stroke="#000" stroke-width="2.6" fill="none"/>
+  </g>
+</svg>

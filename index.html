@@ -1,0 +1,415 @@
+<!doctype html>
+<!--
+  index.html: Portada de Racha, escuela de kitesurf (ficticia) en Tarifa / Home page
+  Racha es una marca ficticia: web de demostración de danimefle.com.
+  Racha is a fictitious brand: demo site by danimefle.com.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Racha · Escuela de kitesurf en Tarifa</title>
+  <meta name="description" content="Escuela de kitesurf en Tarifa (marca ficticia): bautismo, cursos de iniciación y perfeccionamiento, clases privadas y alquiler, en la playa que pida el viento.">
+  <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://racha.danimefle.com/">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Racha">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://racha.danimefle.com/">
+  <meta property="og:title" content="Racha · Escuela de kitesurf en Tarifa">
+  <meta property="og:description" content="Escuela de kitesurf en Tarifa (marca ficticia): bautismo, cursos de iniciación y perfeccionamiento, clases privadas y alquiler, en la playa que pida el viento.">
+  <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-portada.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Racha, escuela de kitesurf en Tarifa">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Racha · Escuela de kitesurf en Tarifa">
+  <meta name="twitter:description" content="Escuela de kitesurf en Tarifa (marca ficticia): bautismo, cursos de iniciación y perfeccionamiento, clases privadas y alquiler, en la playa que pida el viento.">
+  <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-portada.jpg">
+  <meta name="theme-color" content="#a7ff9c">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes propias y estilos / Self-hosted fonts and styles -->
+  <link rel="preload" href="assets/fonts/BricolageGrotesque-v9-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <!-- Clase js antes de pintar; analítica Plausible sin cookies; scripts de la página -->
+  <!-- js class before painting; cookie-free Plausible analytics; page scripts -->
+  <script src="assets/js/temprano.js"></script>
+  <script defer data-domain="racha.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+  <script src="assets/js/movimiento.js" defer></script>
+  <script src="assets/js/viento.js" defer></script>
+  <!-- Datos estructurados: solo el sitio, sin negocio (es ficticio) / Structured data: site only, no business (it is fictitious) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Racha","url":"https://racha.danimefle.com/","inLanguage":"es","description":"Web de demostración de una escuela de kitesurf ficticia en Tarifa."}</script>
+</head>
+<body>
+
+<!-- ===================== BARRA COMÚN / COMMON BAR ===================== -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <a class="barra__marca" href="index.html" aria-label="Racha, inicio" aria-current="page">racha</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <ul class="barra__links">
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
+  <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<!-- Menú del móvil: diálogo con foco atrapado; Escape lo cierra / Phone menu: dialog with focus trap; Escape closes it -->
+<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <button class="menu-movil__cerrar" type="button">Cerrar</button>
+  <nav aria-label="Menú del móvil">
+    <ul>
+      <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="contacto.html#formulario">Reservar</a>
+</div>
+
+<main id="contenido" tabindex="-1">
+<!-- ===================== HÉROE: la cinta con fotos / HERO: the tape with photos ===================== -->
+<section class="hero" id="inicio" aria-label="Portada">
+  <!-- Bloque central: la cinta con el nombre y las fotos, y la frase que dice qué es esto.
+       La cinta se mueve con el viento elegido; la primera copia es el texto real y las demás van ocultas
+       a lectores de pantalla. -->
+  <!-- Middle block: the tape with the name and the photos, and the sentence saying what this is.
+       The tape moves with the chosen wind; the first copy is the real text and the rest are hidden
+       from screen readers. -->
+  <div class="hero__mid">
+    <h1 class="hero__line" data-linea>
+      <span class="hero__track" data-pista>
+        <span class="hero__seg">racha kite tarifa<span class="hero__pic"><img src="assets/img/kiter-cuadrado.webp" width="720" height="720" alt="" fetchpriority="high"></span></span>
+        <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/isla-cuadrado.webp" width="720" height="720" alt=""></span></span>
+        <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/cometas-cuadrado.webp" width="720" height="720" alt=""></span></span>
+        <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/kiter-cuadrado.webp" width="720" height="720" alt=""></span></span>
+        <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/isla-cuadrado.webp" width="720" height="720" alt=""></span></span>
+        <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/cometas-cuadrado.webp" width="720" height="720" alt=""></span></span>
+      </span>
+    </h1>
+
+    <div class="hero__copy">
+      <p class="hero__say" data-r style="--i:2">Escuela de kitesurf en Tarifa. Vamos a la playa que pida el viento.</p>
+      <p class="hero__fact" data-r style="--i:3">Bautismo de 2 horas, 75 € con todo el material</p>
+    </div>
+  </div>
+
+  <!-- Fila inferior: dónde y la única acción / Bottom row: where, and the single action -->
+  <div class="hero__bottom">
+    <p class="hero__where">Los Lances y Valdevaqueros · Tarifa, Cádiz</p>
+    <a class="btn hero__cta" href="contacto.html?curso=bautismo#formulario">Reservar bautismo</a>
+  </div>
+</section>
+
+<!-- ===================== INTRO: tablero de baldosas ===================== -->
+<!-- ===================== INTRO: statement tiles board ===================== -->
+<section class="intro" aria-labelledby="t-intro">
+  <div class="board">
+    <!-- Baldosa A: el lema, en la baldosa más oscura -->
+    <!-- Tile A: the slogan, on the darkest tile -->
+    <div class="tile tile--a">
+      <h2 class="slogan" id="t-intro"><span class="ln"><span data-r style="--i:0">el viento</span></span><span class="ln"><span data-r style="--i:1">manda</span></span></h2>
+    </div>
+    <!-- Baldosa B: una palabra a la misma talla, recortada -->
+    <!-- Tile B: one word at the same size, cropped -->
+    <div class="tile tile--b" aria-hidden="true"><span class="tile__word" data-r style="--i:2">36°N</span></div>
+    <!-- Baldosa C: la imagen en movimiento (bucle mudo con póster) -->
+    <!-- Tile C: the moving picture (muted loop with a poster) -->
+    <div class="tile tile--c">
+      <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/video/cometas-atardecer-poster.webp" width="854" height="384" aria-hidden="true">
+        <source src="assets/video/cometas-atardecer.webm" type="video/webm">
+      </video>
+    </div>
+    <!-- Baldosa D: foto de la duna a la izquierda y el texto largo a la derecha -->
+    <!-- Tile D: dune photo on the left and the long text on the right -->
+    <div class="tile tile--d">
+      <figure class="intro__pic" data-r style="--i:0">
+        <img src="assets/img/duna.webp" width="1600" height="1092" alt="La arena de la duna de Valdevaqueros, rizada por el viento, con matas de barrón" loading="lazy" decoding="async">
+      </figure>
+      <p class="intro__text" data-r style="--i:1">Racha es una escuela pequeña de kitesurf en Tarifa, la punta sur de Europa, en el paralelo 36, donde el Estrecho hace de embudo para el viento. Cada mañana a las nueve miramos el parte, salimos a la arena a sentir el aire y decidimos dónde se da la clase: con Levante nos vamos a Valdevaqueros, que lo recibe de costado; con Poniente nos quedamos en Los Lances, la playa larga que mira a la isla. Nunca más de cuatro alumnos por monitor, radio en el casco y lancha en el agua cuando el viento sopla de tierra. Si no hay viento, no hay clase y no se cobra: se cambia de día sin preguntas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LA COSA VIVA: parte del viento ===================== -->
+<!-- ===================== THE LIVE THING: wind report ===================== -->
+<section class="viento" id="viento" aria-labelledby="t-viento">
+  <div class="viento__grid">
+    <!-- Columna izquierda: título, explicación corta y mandos -->
+    <!-- Left column: heading, short note and controls -->
+    <div class="viento__ctrl">
+      <h2 class="h-head" id="t-viento" data-r style="--i:0">¿qué sopla hoy?</h2>
+      <p class="viento__intro" data-r style="--i:1">Elige el viento y su fuerza. Te decimos la playa, la clase y la cometa, igual que lo decidimos nosotros cada mañana.</p>
+
+      <form class="mandos" data-r style="--i:2" aria-describedby="nota-cometa">
+        <fieldset class="dir">
+          <legend class="sr">Dirección del viento</legend>
+          <label class="dir__opt"><input type="radio" name="viento" value="levante" checked><span>Levante<small>sopla del este</small></span></label>
+          <label class="dir__opt"><input type="radio" name="viento" value="poniente"><span>Poniente<small>sopla del oeste</small></span></label>
+        </fieldset>
+        <div class="fuerza">
+          <label class="fuerza__lab" for="nudos">Fuerza</label>
+          <output class="fuerza__num" id="nudos-out" for="nudos">18 nudos</output>
+          <input class="fuerza__range" type="range" id="nudos" name="nudos" min="4" max="40" step="1" value="18" aria-valuetext="18 nudos">
+        </div>
+      </form>
+      <a class="btn viento__cta" data-r style="--i:3" id="reserva-viento" href="contacto.html?viento=levante&amp;nudos=18#formulario">Reservar con este viento</a>
+    </div>
+
+    <!-- Columna derecha: el escenario (rayas de viento y cometas) y la respuesta -->
+    <!-- Right column: the stage (wind streaks and kites) and the answer -->
+    <div class="viento__out">
+      <div class="stage" data-r style="--i:1" aria-hidden="true">
+        <canvas class="stage__wind" width="800" height="420"></canvas>
+        <svg class="stage__kites" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet">
+          <!-- Tres cometas de arco: su tamaño sigue a los m² recomendados -->
+          <!-- Three arc kites: their size follows the recommended m² -->
+          <g data-kite="0" transform="translate(220 120)">
+            <path class="k-line" d="M0 0"/>
+            <path class="k-body k-body--ink" d="M-70 10 Q0 -60 70 10 L58 22 Q0 -30 -58 22 Z"/>
+          </g>
+          <g data-kite="1" transform="translate(420 90)">
+            <path class="k-line" d="M0 0"/>
+            <path class="k-body k-body--mint" d="M-70 10 Q0 -60 70 10 L58 22 Q0 -30 -58 22 Z"/>
+          </g>
+          <g data-kite="2" transform="translate(620 140)">
+            <path class="k-line" d="M0 0"/>
+            <path class="k-body k-body--paper" d="M-70 10 Q0 -60 70 10 L58 22 Q0 -30 -58 22 Z"/>
+          </g>
+        </svg>
+        <figure class="stage__flags">
+          <img src="assets/img/banderas.webp" width="900" height="900" alt="" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <!-- La respuesta: valores por defecto escritos en el HTML (funciona sin JS) -->
+      <!-- The answer: default values written in the HTML (works without JS) -->
+      <dl class="parte">
+        <div class="parte__row" data-r style="--i:2"><dt>Playa</dt><dd id="o-playa">Valdevaqueros</dd></div>
+        <div class="parte__row" data-r style="--i:3"><dt>Cometa</dt><dd id="o-cometa">9 m²</dd></div>
+        <div class="parte__row parte__row--wide" data-r style="--i:4"><dt>Clase</dt><dd id="o-curso">Curso de iniciación, en grupos de dos</dd></div>
+        <div class="parte__row parte__row--wide" data-r style="--i:5"><dt>El mar</dt><dd id="o-mar">Viento de costado desde tierra, agua más plana y rachas</dd></div>
+      </dl>
+      <p class="solo-lector" id="resumen-parte" role="status"></p>
+      <p class="parte__nota" id="nota-cometa">Cometa calculada para 75 kilos. Con menos peso, un número menos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CURSOS: título fijo y filas que pasan ===================== -->
+<!-- ===================== COURSES: pinned heading, passing rows ===================== -->
+<section class="cursos" id="cursos" aria-labelledby="t-cursos">
+  <div class="cursos__grid">
+    <!-- Columna fija: el título y una foto grande del Estrecho que acompañan mientras pasan los cursos -->
+    <!-- Pinned column: the heading and a large photo of the Strait that stay while the courses pass -->
+    <div class="cursos__side">
+      <h2 class="cursos__h" id="t-cursos">lo que enseñamos</h2>
+      <a class="btn btn--ink" href="cursos.html">Ver los cursos</a>
+      <figure class="cursos__pic"><img src="assets/img/estrecho.webp" width="1400" height="933" alt="El Estrecho desde la sierra de Tarifa, con la playa abajo y la costa de Marruecos enfrente" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="cursos__list">
+
+      <!-- Bloque: bautismo / Block: taster -->
+      <article class="curso" data-r style="--i:0">
+        <h3 class="curso__t">Bautismo</h3>
+        <div class="curso__row">
+          <figure class="curso__pic"><img src="assets/img/lances-cometas.webp" width="1600" height="1200" alt="Cometas de colores tendidas en la arena de Los Lances, con gente y la sierra al fondo" loading="lazy" decoding="async"></figure>
+          <ul class="curso__ul">
+            <li>Dos horas entre la arena y el agua</li>
+            <li>Desde 12 años, sabiendo nadar</li>
+            <li>Cuatro alumnos por monitor</li>
+            <li>Neopreno, casco, chaleco y radio</li>
+            <li>75 €</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Bloque: iniciación / Block: beginner course -->
+      <article class="curso curso--flip" data-r style="--i:0">
+        <h3 class="curso__t">Curso de iniciación</h3>
+        <div class="curso__row">
+          <figure class="curso__pic"><img src="assets/img/isla.webp" width="1600" height="952" alt="Cometas en el aire delante de la Isla de las Palomas, en Tarifa" loading="lazy" decoding="async"></figure>
+          <ul class="curso__ul">
+            <li>Nueve horas en tres días seguidos</li>
+            <li>De la cometa de tierra a ir de pie en la tabla</li>
+            <li>Una cometa por cada dos alumnos</li>
+            <li>Lancha de apoyo los días de Levante</li>
+            <li>Seguro de accidentes incluido</li>
+            <li>320 €</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Bloque: perfeccionamiento / Block: improver -->
+      <article class="curso" data-r style="--i:0">
+        <h3 class="curso__t">Perfeccionamiento</h3>
+        <div class="curso__row">
+          <figure class="curso__pic"><img src="assets/img/sotavento.webp" width="900" height="1350" alt="Una cometa verde tira de un kiter que corre sobre agua turquesa" loading="lazy" decoding="async"></figure>
+          <ul class="curso__ul">
+            <li>Bloques de dos horas, cuando sople</li>
+            <li>Ceñir y volver al punto de salida</li>
+            <li>Transiciones y primeros saltos</li>
+            <li>Dos alumnos por monitor</li>
+            <li>Vídeo de tu sesión para corregir en la arena</li>
+            <li>110 € el bloque</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Bloque: clases privadas / Block: private lessons -->
+      <article class="curso curso--flip" data-r style="--i:0">
+        <h3 class="curso__t">Clases privadas</h3>
+        <div class="curso__row">
+          <figure class="curso__pic"><img src="assets/img/kiter.webp" width="1600" height="1067" alt="Kiter en pleno salto, agarrado a la barra, con la tabla en la mano" loading="lazy" decoding="async"></figure>
+          <ul class="curso__ul">
+            <li>Un monitor solo para ti</li>
+            <li>Radio en el casco desde el primer minuto</li>
+            <li>A la hora que marquen marea y viento</li>
+            <li>85 € la hora</li>
+            <li>Bono de cinco horas, 380 €</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Bloque: alquiler y guardería / Block: rental and storage -->
+      <article class="curso" data-r style="--i:0">
+        <h3 class="curso__t">Alquiler y guardería</h3>
+        <div class="curso__row">
+          <figure class="curso__pic"><img src="assets/img/lances-escollera.webp" width="1600" height="1200" alt="Escollera de Los Lances con cometas en el cielo y la playa de Tarifa al fondo" loading="lazy" decoding="async"></figure>
+          <ul class="curso__ul">
+            <li>Cometas de 5 a 14 m², twin tip y tabla de surf</li>
+            <li>Solo con nivel independiente: lo vemos en el agua</li>
+            <li>Medio día 55 €, día completo 80 €</li>
+            <li>Guarda tu material en la caseta: 60 € la semana</li>
+            <li>Ducha de agua dulce y taquilla</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRECIOS: dos planes, dos campos ===================== -->
+<!-- ===================== PRICING: two plans, two fields ===================== -->
+<section class="precios" id="precios" aria-label="Precios">
+  <!-- Plan pequeño: bautismo (campo menta, columnas 1 a 5) -->
+  <!-- Small plan: taster (mint field, columns 1 to 5) -->
+  <div class="plan plan--a">
+    <h2 class="plan__name" data-r style="--i:0">bautismo</h2>
+    <p class="plan__who" data-r style="--i:1">Para probar sin comprometerte a nada.</p>
+    <p class="plan__inc" data-r style="--i:2">Dos horas con todo el material, seguro y un monitor por cada cuatro. Si a la semana te apuntas al curso, te descontamos lo pagado.</p>
+    <div class="plan__foot" data-r style="--i:3">
+      <p class="plan__price">75 €<span>2 horas</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=bautismo#formulario">Reservar</a>
+    </div>
+  </div>
+  <!-- Plan principal: curso de iniciación (campo negro, columnas 6 a 12) -->
+  <!-- Main plan: beginner course (black field, columns 6 to 12) -->
+  <div class="plan plan--b">
+    <h2 class="plan__name" data-r style="--i:0">curso de iniciación</h2>
+    <p class="plan__who" data-r style="--i:1">Para salir del agua navegando tú solo.</p>
+    <p class="plan__inc" data-r style="--i:2">Nueve horas en tres días, en la playa que toque según el viento, con todo el material, seguro y lancha los días de Levante. Si un día no sopla, lo movemos sin coste.</p>
+    <div class="plan__foot" data-r style="--i:3">
+      <p class="plan__price">320 €<span>3 días</span></p>
+      <a class="btn" href="contacto.html?curso=iniciacion#formulario">Reservar curso</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DUDAS: fichas con pestaña ===================== -->
+<!-- ===================== FAQ: tabbed index cards ===================== -->
+<section class="dudas" id="dudas" aria-labelledby="t-dudas">
+  <h2 class="h-head dudas__h" id="t-dudas" data-r style="--i:0">dudas antes de venir</h2>
+  <!-- Acordeón exclusivo nativo (details con el mismo name): una ficha abierta cada vez, sin JS -->
+  <!-- Native exclusive accordion (details sharing a name): one card open at a time, no JS -->
+  <div class="fichas">
+    <details class="ficha" name="dudas" open style="--n:0">
+      <summary><span class="ficha__tab">Nadar</span><span class="ficha__q">¿Tengo que saber nadar?</span></summary>
+      <p class="ficha__a">Sí, lo justo para estar tranquilo donde no haces pie. Llevas chaleco y casco todo el curso, pero el kite se aprende con agua por la cintura y algo más adentro, y hay que sentirse cómodo.</p>
+    </details>
+    <details class="ficha" name="dudas" style="--n:1">
+      <summary><span class="ficha__tab">Edad</span><span class="ficha__q">¿Desde qué edad se puede?</span></summary>
+      <p class="ficha__a">Desde los 12 años con autorización firmada y a partir de unos 40 kilos: con menos peso, la cometa te gana. Por arriba no hay límite si te encuentras en forma.</p>
+    </details>
+    <details class="ficha" name="dudas" style="--n:2">
+      <summary><span class="ficha__tab">Sin viento</span><span class="ficha__q">¿Y si el día de la clase no sopla?</span></summary>
+      <p class="ficha__a">No hay clase y no se cobra. Te proponemos otro día de tu semana o te devolvemos el dinero. Lo decidimos a las nueve de la mañana con el parte y te avisamos por mensaje.</p>
+    </details>
+    <details class="ficha" name="dudas" style="--n:3">
+      <summary><span class="ficha__tab">Levante</span><span class="ficha__q">¿El Levante es para principiantes?</span></summary>
+      <p class="ficha__a">El flojo sí; el fuerte, no. Sopla de tierra hacia el mar y llega a rachas, así que con Levante damos clase en Valdevaqueros, en grupos más pequeños y con lancha en el agua. Con Levante, la iniciación sale hasta unos 18 nudos; por encima pasamos a perfeccionamiento o nos quedamos en la arena.</p>
+    </details>
+    <details class="ficha" name="dudas" style="--n:4">
+      <summary><span class="ficha__tab">Verano</span><span class="ficha__q">¿Se navega en julio y agosto?</span></summary>
+      <p class="ficha__a">Sí, pero solo por los pasillos balizados para kite, porque las playas se llenan de bañistas. Te llevamos al que toca y te enseñamos a entrar y salir por él.</p>
+    </details>
+    <details class="ficha" name="dudas" style="--n:5">
+      <summary><span class="ficha__tab">Material</span><span class="ficha__q">¿Qué tengo que traer?</span></summary>
+      <p class="ficha__a">Bañador, crema solar, agua y algo de comer. Neopreno, arnés, casco, chaleco y tabla los ponemos nosotros. Si tienes escarpines, tráelos.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO: la dirección en filas grandes ===================== -->
+<!-- ===================== CONTACT: the address in display rows ===================== -->
+<section class="contacto" id="contacto" aria-labelledby="t-contacto">
+  <div class="fila fila--photo" data-r style="--i:0">
+    <h2 class="fila__t" id="t-contacto">Caseta Racha</h2>
+    <figure class="fila__pic"><img src="assets/img/estrecho.webp" width="1400" height="933" alt="El Estrecho desde la sierra de Tarifa, con la playa abajo y la costa de Marruecos enfrente" loading="lazy" decoding="async"></figure>
+  </div>
+  <p class="fila" data-r style="--i:1">Calle Cometa Varada, 3</p>
+  <p class="fila" data-r style="--i:2">11380 Tarifa, Cádiz</p>
+  <p class="fila fila--horas" data-r style="--i:3"><span>Todos los días</span> <span>de 10 a 20 h</span></p>
+  <a class="fila fila--link" data-r style="--i:4" href="mailto:hola@racha.example">hola@racha.example</a>
+  <p class="fila fila--hola" data-r style="--i:5">
+    <span>Hola</span>
+    <a class="arrow" href="contacto.html" aria-label="Ir a la página de contacto">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>
+    </a>
+  </p>
+</section>
+</main>
+
+<!-- ===================== PIE COMÚN / COMMON FOOTER ===================== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__inv">
+      <h2 class="pie__h" data-r style="--i:0">¿sopla mañana?<br>vente.</h2>
+      <a class="btn" data-r style="--i:1" href="contacto.html#formulario">Escríbenos</a>
+    </div>
+    <ul class="pie__links" data-r style="--i:2">
+      <li><a class="lnk" href="cursos.html">Cursos</a></li>
+      <li><a class="lnk" href="spots.html">Spots</a></li>
+      <li><a class="lnk" href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a class="lnk" href="contacto.html">Contacto</a></li>
+      <li><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></li>
+    </ul>
+  </div>
+  <!-- El nombre a todo el ancho, entero / The name across the full width, whole -->
+  <p class="pie__mark" aria-hidden="true"><span data-r style="--i:0">racha</span></p>
+  <!-- Aviso de demostración y enlaces legales / Demo notice and legal links -->
+  <div class="pie__legal">
+    <p class="pie__demo">Marca ficticia. Web de demostración de <a class="lnk" href="https://danimefle.com">danimefle.com</a></p>
+    <ul>
+      <li><a class="lnk" href="aviso-legal.html">Aviso legal</a></li>
+      <li><a class="lnk" href="privacidad.html">Privacidad</a></li>
+      <li><a class="lnk" href="cookies.html">Cookies</a></li>
+      <li><a class="lnk" href="creditos.html">Créditos</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

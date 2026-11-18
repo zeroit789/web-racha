@@ -1,0 +1,8 @@
+# .gitignore: ficheros de trabajo que no se publican / working files that are not published
+captura-*.png
+vista.jpg
+node_modules/
+.wrangler/
+.local/
+__pycache__/
+hoja-direccion.txt

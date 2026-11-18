@@ -1,0 +1,239 @@
+<!doctype html>
+<!--
+  cursos.html: Cursos con detalle, niveles y precios / Courses in detail
+  Racha es una marca ficticia: web de demostración de danimefle.com.
+  Racha is a fictitious brand: demo site by danimefle.com.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursos de kitesurf · Racha, Tarifa</title>
+  <meta name="description" content="Bautismo, iniciación, perfeccionamiento, clases privadas y alquiler en Tarifa: niveles, qué incluye cada curso, horarios y precios.">
+  <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://racha.danimefle.com/cursos.html">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Racha">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://racha.danimefle.com/cursos.html">
+  <meta property="og:title" content="Cursos de kitesurf · Racha, Tarifa">
+  <meta property="og:description" content="Bautismo, iniciación, perfeccionamiento, clases privadas y alquiler en Tarifa: niveles, qué incluye cada curso, horarios y precios.">
+  <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-cursos.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cursos de kitesurf de Racha">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cursos de kitesurf · Racha, Tarifa">
+  <meta name="twitter:description" content="Bautismo, iniciación, perfeccionamiento, clases privadas y alquiler en Tarifa: niveles, qué incluye cada curso, horarios y precios.">
+  <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-cursos.jpg">
+  <meta name="theme-color" content="#a7ff9c">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes propias y estilos / Self-hosted fonts and styles -->
+  <link rel="preload" href="assets/fonts/BricolageGrotesque-v9-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <!-- Clase js antes de pintar; analítica Plausible sin cookies; scripts de la página -->
+  <!-- js class before painting; cookie-free Plausible analytics; page scripts -->
+  <script src="assets/js/temprano.js"></script>
+  <script defer data-domain="racha.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+  <script src="assets/js/movimiento.js" defer></script>
+</head>
+<body>
+
+<!-- ===================== BARRA COMÚN / COMMON BAR ===================== -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <a class="barra__marca" href="index.html" aria-label="Racha, inicio">racha</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <ul class="barra__links">
+        <li><a href="cursos.html" aria-current="page">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
+  <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<!-- Menú del móvil: diálogo con foco atrapado; Escape lo cierra / Phone menu: dialog with focus trap; Escape closes it -->
+<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <button class="menu-movil__cerrar" type="button">Cerrar</button>
+  <nav aria-label="Menú del móvil">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+        <li><a href="cursos.html" aria-current="page">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="contacto.html#formulario">Reservar</a>
+</div>
+
+<main id="contenido" tabindex="-1">
+<!-- ===================== CABECERA DE PÁGINA / PAGE HEAD ===================== -->
+<section class="cabeza cabeza--naranja" aria-labelledby="t-pagina">
+  <h1 class="cabeza__h" id="t-pagina" data-r style="--i:0">cursos de kite</h1>
+  <div class="cabeza__txt" data-r style="--i:1">
+    <p class="cabeza__lead">Del primer contacto con la cometa a navegar solo. Cada clase se da en la playa que pida el viento ese día, con todo el material.</p>
+    <p class="cabeza__dato">Desde 75 € · De 12 años en adelante</p>
+  </div>
+</section>
+
+<!-- ===================== NIVELES: escalera / LEVELS: staircase ===================== -->
+<section class="bloque" aria-labelledby="t-niveles">
+  <h2 class="bloque__h" id="t-niveles" data-r style="--i:0">cinco escalones</h2>
+  <p class="bloque__intro" data-r style="--i:1">Nadie empieza en el agua. Se sube escalón a escalón y cada curso cubre unos cuantos. Si ya sabes algo, lo vemos el primer día en la arena y entras donde te toca.</p>
+  <ol class="niveles">
+    <li class="nivel" style="--n:0" data-r><span class="nivel__t">Tierra</span><p>Montar la cometa, leer el viento y soltar la barra de seguridad sin pensarlo.</p><span class="nivel__curso">Bautismo e iniciación</span></li>
+    <li class="nivel" style="--n:1" data-r><span class="nivel__t">Agua sin tabla</span><p>Dejarte llevar por la cometa, volver a por la tabla y salir solo del agua.</p><span class="nivel__curso">Bautismo e iniciación</span></li>
+    <li class="nivel" style="--n:2" data-r><span class="nivel__t">De pie</span><p>Arrancar con la tabla, aguantar de pie unos metros y parar con control.</p><span class="nivel__curso">Iniciación</span></li>
+    <li class="nivel" style="--n:3" data-r><span class="nivel__t">Bordos</span><p>Navegar en los dos sentidos y frenar cuando quieres, no cuando te caes.</p><span class="nivel__curso">Perfeccionamiento</span></li>
+    <li class="nivel" style="--n:4" data-r><span class="nivel__t">Ceñida</span><p>Ganar terreno al viento, volver al punto de salida y cambiar de bordo sin parar.</p><span class="nivel__curso">Perfeccionamiento</span></li>
+  </ol>
+</section>
+
+<!-- ===================== FICHAS DE CURSO / COURSE CARDS ===================== -->
+<section class="bloque bloque--gris" aria-labelledby="t-fichas">
+  <h2 class="bloque__h" id="t-fichas" data-r style="--i:0">qué incluye cada uno</h2>
+
+  <article class="ficha-curso" aria-labelledby="c-bautismo">
+    <div class="ficha-curso__cab" data-r style="--i:0">
+      <h3 class="ficha-curso__h" id="c-bautismo">Bautismo</h3>
+      <p class="ficha-curso__precio">75 €<span>dos horas, una sesión</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=bautismo#formulario">Reservar bautismo</a>
+    </div>
+    <dl class="ficha-curso__datos" data-r style="--i:1">
+      <div><dt>Para quién</dt><dd>Para probar antes de decidir si haces el curso.</dd></div>
+      <div><dt>Grupo</dt><dd>Hasta cuatro alumnos por monitor.</dd></div>
+      <div><dt>Escalones</dt><dd>Tierra y los primeros minutos de agua sin tabla.</dd></div>
+      <div><dt>Incluye</dt><dd>Neopreno, arnés, casco con radio, chaleco, cometa de escuela y seguro de accidentes.</dd></div>
+      <div><dt>Traes tú</dt><dd>Bañador, crema solar y agua.</dd></div>
+      <div><dt>Ojo</dt><dd>Si a la semana te apuntas a la iniciación, te descontamos lo pagado.</dd></div>
+    </dl>
+    <figure class="ficha-curso__pic" data-r style="--i:2"><img src="assets/img/lances-cometas.webp" width="1600" height="1200" alt="Cometas de colores tendidas en la arena de Los Lances, con gente alrededor y la sierra al fondo" loading="lazy" decoding="async"></figure>
+  </article>
+
+  <article class="ficha-curso" aria-labelledby="c-iniciacion">
+    <div class="ficha-curso__cab" data-r style="--i:0">
+      <h3 class="ficha-curso__h" id="c-iniciacion">Iniciación</h3>
+      <p class="ficha-curso__precio">320 €<span>nueve horas en tres días</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=iniciacion#formulario">Reservar iniciación</a>
+    </div>
+    <dl class="ficha-curso__datos" data-r style="--i:1">
+      <div><dt>Para quién</dt><dd>Para salir del curso navegando tú solo unos metros y sabiendo volver.</dd></div>
+      <div><dt>Grupo</dt><dd>Una cometa por cada dos alumnos y cuatro alumnos como mucho por monitor.</dd></div>
+      <div><dt>Escalones</dt><dd>Tierra, agua sin tabla y de pie.</dd></div>
+      <div><dt>Horario</dt><dd>Tres horas al día durante tres días seguidos; la hora la marca el parte.</dd></div>
+      <div><dt>Incluye</dt><dd>Todo el material, radio, seguro, lancha de apoyo los días de Levante y el vídeo de tu última sesión.</dd></div>
+      <div><dt>Sin viento</dt><dd>Ese día no hay clase y se mueve a otro sin coste.</dd></div>
+    </dl>
+    <figure class="ficha-curso__pic" data-r style="--i:2"><img src="assets/img/isla.webp" width="1600" height="952" alt="Cometas en el aire delante de la Isla de las Palomas, en Tarifa" loading="lazy" decoding="async"></figure>
+  </article>
+
+  <article class="ficha-curso" aria-labelledby="c-perfeccionamiento">
+    <div class="ficha-curso__cab" data-r style="--i:0">
+      <h3 class="ficha-curso__h" id="c-perfeccionamiento">Perfeccionamiento</h3>
+      <p class="ficha-curso__precio">110 €<span>el bloque de dos horas</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=perfeccionamiento#formulario">Reservar un bloque</a>
+    </div>
+    <dl class="ficha-curso__datos" data-r style="--i:1">
+      <div><dt>Para quién</dt><dd>Para quien ya va de pie pero acaba siempre más abajo de donde salió.</dd></div>
+      <div><dt>Grupo</dt><dd>Dos alumnos por monitor.</dd></div>
+      <div><dt>Escalones</dt><dd>Bordos y ceñida; transiciones y primeros saltos si el día lo permite.</dd></div>
+      <div><dt>Horario</dt><dd>Bloques sueltos, cuando sople. Puedes encadenar varios en la misma semana.</dd></div>
+      <div><dt>Incluye</dt><dd>Material, radio y vídeo de la sesión para corregir en la arena.</dd></div>
+    </dl>
+    <figure class="ficha-curso__pic" data-r style="--i:2"><img src="assets/img/sotavento.webp" width="900" height="1350" alt="Una cometa verde tira de un kiter que corre sobre agua turquesa" loading="lazy" decoding="async"></figure>
+  </article>
+
+  <article class="ficha-curso" aria-labelledby="c-privadas">
+    <div class="ficha-curso__cab" data-r style="--i:0">
+      <h3 class="ficha-curso__h" id="c-privadas">Clases privadas</h3>
+      <p class="ficha-curso__precio">85 €<span>la hora · bono de cinco horas, 380 €</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=privadas#formulario">Reservar clase privada</a>
+    </div>
+    <dl class="ficha-curso__datos" data-r style="--i:1">
+      <div><dt>Para quién</dt><dd>Para cualquier escalón, si quieres ir a tu ritmo o tienes pocos días.</dd></div>
+      <div><dt>Grupo</dt><dd>Un monitor solo para ti.</dd></div>
+      <div><dt>Horario</dt><dd>A la hora que marquen marea y viento; las primeras de la mañana suelen ser las más tranquilas.</dd></div>
+      <div><dt>Incluye</dt><dd>Material, radio desde el primer minuto y seguro.</dd></div>
+    </dl>
+    <figure class="ficha-curso__pic" data-r style="--i:2"><img src="assets/img/kiter.webp" width="1600" height="1067" alt="Kiter en pleno salto, agarrado a la barra, con la tabla en la mano" loading="lazy" decoding="async"></figure>
+  </article>
+
+  <article class="ficha-curso" aria-labelledby="c-alquiler">
+    <div class="ficha-curso__cab" data-r style="--i:0">
+      <h3 class="ficha-curso__h" id="c-alquiler">Alquiler y guardería</h3>
+      <p class="ficha-curso__precio">55 €<span>medio día · día completo, 80 €</span></p>
+      <a class="btn btn--ink" href="contacto.html?curso=alquiler#formulario">Pedir material</a>
+    </div>
+    <dl class="ficha-curso__datos" data-r style="--i:1">
+      <div><dt>Para quién</dt><dd>Solo para quien navega de forma independiente: lo comprobamos en el agua el primer día.</dd></div>
+      <div><dt>Material</dt><dd>Cometas de 5 a 14 m², tablas twin tip y de surf, arneses y neoprenos.</dd></div>
+      <div><dt>Guardería</dt><dd>Guarda tu material en la caseta por 60 € la semana, con ducha de agua dulce y taquilla.</dd></div>
+      <div><dt>Ojo</dt><dd>Con Levante fuerte no alquilamos cometas grandes.</dd></div>
+    </dl>
+    <figure class="ficha-curso__pic" data-r style="--i:2"><img src="assets/img/lances-escollera.webp" width="1600" height="1200" alt="Escollera de Los Lances con cometas en el cielo y la playa de Tarifa al fondo" loading="lazy" decoding="async"></figure>
+  </article>
+</section>
+
+<!-- ===================== UN DÍA DE CURSO / A COURSE DAY ===================== -->
+<section class="bloque bloque--naranja" aria-labelledby="t-dia">
+  <h2 class="bloque__h" id="t-dia" data-r style="--i:0">un día de curso</h2>
+  <p class="bloque__intro" data-r style="--i:1">Con Poniente, el día suele ir así. Con Levante fuerte adelantamos o retrasamos la clase para pillar las horas más tranquilas.</p>
+  <ol class="dia">
+    <li data-r style="--i:0"><time datetime="09:00">9:00</time><p>Miramos el parte y te escribimos la playa y la hora.</p></li>
+    <li data-r style="--i:1"><time datetime="10:00">10:00</time><p>En la caseta: neopreno, arnés, casco con radio y explicación en seco.</p></li>
+    <li data-r style="--i:2"><time datetime="10:30">10:30</time><p>Cometa pequeña en la arena hasta que la barra de seguridad sale sola.</p></li>
+    <li data-r style="--i:3"><time datetime="11:15">11:15</time><p>Al agua con el monitor al lado y la radio encendida.</p></li>
+    <li data-r style="--i:4"><time datetime="13:00">13:00</time><p>Fuera, recogida del material y repaso de lo que ha salido bien y lo que no.</p></li>
+  </ol>
+</section>
+
+<!-- ===================== CIERRE CON ACCIÓN / CLOSING WITH ACTION ===================== -->
+<section class="franja" aria-labelledby="t-franja">
+  <h2 class="franja__h" id="t-franja" data-r style="--i:0">¿cuál te toca?</h2>
+  <div class="franja__txt" data-r style="--i:1">
+    <p>Mira el parte del viento en la portada o cuéntanos qué sabes hacer y te decimos por dónde empezar.</p>
+    <a class="btn btn--ink" href="contacto.html#formulario">Preguntar por un curso</a>
+  </div>
+</section>
+</main>
+
+<!-- ===================== PIE COMÚN / COMMON FOOTER ===================== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__inv">
+      <h2 class="pie__h" data-r style="--i:0">¿sopla mañana?<br>vente.</h2>
+      <a class="btn" data-r style="--i:1" href="contacto.html#formulario">Escríbenos</a>
+    </div>
+    <ul class="pie__links" data-r style="--i:2">
+      <li><a class="lnk" href="cursos.html">Cursos</a></li>
+      <li><a class="lnk" href="spots.html">Spots</a></li>
+      <li><a class="lnk" href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a class="lnk" href="contacto.html">Contacto</a></li>
+      <li><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></li>
+    </ul>
+  </div>
+  <!-- El nombre a todo el ancho, entero / The name across the full width, whole -->
+  <p class="pie__mark" aria-hidden="true"><span data-r style="--i:0">racha</span></p>
+  <!-- Aviso de demostración y enlaces legales / Demo notice and legal links -->
+  <div class="pie__legal">
+    <p class="pie__demo">Marca ficticia. Web de demostración de <a class="lnk" href="https://danimefle.com">danimefle.com</a></p>
+    <ul>
+      <li><a class="lnk" href="aviso-legal.html">Aviso legal</a></li>
+      <li><a class="lnk" href="privacidad.html">Privacidad</a></li>
+      <li><a class="lnk" href="cookies.html">Cookies</a></li>
+      <li><a class="lnk" href="creditos.html">Créditos</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

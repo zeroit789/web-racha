@@ -1,0 +1,205 @@
+<!doctype html>
+<!--
+  contacto.html: Formulario de contacto (demostración), dirección y horario / Contact
+  Racha es una marca ficticia: web de demostración de danimefle.com.
+  Racha is a fictitious brand: demo site by danimefle.com.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto · Racha, escuela de kite en Tarifa</title>
+  <meta name="description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://racha.danimefle.com/contacto.html">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Racha">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://racha.danimefle.com/contacto.html">
+  <meta property="og:title" content="Contacto · Racha, escuela de kite en Tarifa">
+  <meta property="og:description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-contacto.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Contacto de Racha">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contacto · Racha, escuela de kite en Tarifa">
+  <meta name="twitter:description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-contacto.jpg">
+  <meta name="theme-color" content="#a7ff9c">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes propias y estilos / Self-hosted fonts and styles -->
+  <link rel="preload" href="assets/fonts/BricolageGrotesque-v9-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <!-- Clase js antes de pintar; analítica Plausible sin cookies; scripts de la página -->
+  <!-- js class before painting; cookie-free Plausible analytics; page scripts -->
+  <script src="assets/js/temprano.js"></script>
+  <script defer data-domain="racha.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+  <script src="assets/js/movimiento.js" defer></script>
+  <script src="assets/js/formulario.js" defer></script>
+</head>
+<body>
+
+<!-- ===================== BARRA COMÚN / COMMON BAR ===================== -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="barra">
+  <a class="barra__marca" href="index.html" aria-label="Racha, inicio">racha</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <ul class="barra__links">
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
+  <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<!-- Menú del móvil: diálogo con foco atrapado; Escape lo cierra / Phone menu: dialog with focus trap; Escape closes it -->
+<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <button class="menu-movil__cerrar" type="button">Cerrar</button>
+  <nav aria-label="Menú del móvil">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="spots.html">Spots</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="contacto.html#formulario">Reservar</a>
+</div>
+
+<main id="contenido" tabindex="-1">
+<!-- ===================== CABECERA / HEAD ===================== -->
+<section class="cabeza cabeza--menta" aria-labelledby="t-pagina">
+  <h1 class="cabeza__h" id="t-pagina" data-r style="--i:0">escríbenos</h1>
+  <div class="cabeza__txt" data-r style="--i:1">
+    <p class="cabeza__lead">Cuéntanos qué curso te interesa y qué días estás en Tarifa. Te contestamos con la playa y la hora según el parte.</p>
+  </div>
+</section>
+
+<!-- ===================== FORMULARIO Y DATOS / FORM AND DETAILS ===================== -->
+<section class="bloque" aria-labelledby="t-form">
+  <div class="contacto-grid">
+    <!-- Formulario de demostración: no envía ni guarda nada (ver formulario.js) -->
+    <!-- Demo form: sends and stores nothing (see formulario.js) -->
+    <form class="form" id="formulario" action="contacto.html" method="post" novalidate aria-labelledby="t-form">
+      <h2 class="bloque__h" id="t-form">tu reserva</h2>
+      <p class="campo__ayuda">Todos los campos son obligatorios salvo el mensaje. Esta web es una demostración: el formulario no envía nada.</p>
+
+      <div class="campo">
+        <label for="f-nombre">Nombre</label>
+        <input type="text" id="f-nombre" name="nombre" autocomplete="given-name" required aria-describedby="e-nombre">
+        <p class="campo__error" id="e-nombre"></p>
+      </div>
+
+      <div class="campo">
+        <label for="f-correo">Correo electrónico</label>
+        <input type="email" id="f-correo" name="correo" autocomplete="email" required aria-describedby="a-correo e-correo">
+        <p class="campo__ayuda" id="a-correo">Por ejemplo, nombre@dominio.es</p>
+        <p class="campo__error" id="e-correo"></p>
+      </div>
+
+      <div class="campo">
+        <label for="f-curso">Curso</label>
+        <select id="f-curso" name="curso" required aria-describedby="e-curso">
+          <option value="">Elige uno</option>
+          <option value="bautismo">Bautismo · 75 €</option>
+          <option value="iniciacion">Iniciación · 320 €</option>
+          <option value="perfeccionamiento">Perfeccionamiento · 110 € el bloque</option>
+          <option value="privadas">Clases privadas · 85 € la hora</option>
+          <option value="alquiler">Alquiler de material</option>
+          <option value="no-se">No lo sé, aconsejadme</option>
+        </select>
+        <p class="campo__error" id="e-curso"></p>
+      </div>
+
+      <div class="campo">
+        <label for="f-dias">Días que estás en Tarifa</label>
+        <input type="text" id="f-dias" name="dias" required aria-describedby="a-dias e-dias">
+        <p class="campo__ayuda" id="a-dias">Como quieras escribirlo: «del 3 al 7 de julio», «fines de semana de agosto».</p>
+        <p class="campo__error" id="e-dias"></p>
+      </div>
+
+      <div class="campo">
+        <label for="f-mensaje">Mensaje <span class="campo__ayuda">(opcional)</span></label>
+        <textarea id="f-mensaje" name="mensaje" rows="5"></textarea>
+      </div>
+
+      <div class="campo campo--check">
+        <input type="checkbox" id="f-privacidad" name="privacidad" required aria-describedby="e-privacidad">
+        <label for="f-privacidad">He leído la <a href="privacidad.html">política de privacidad</a>.</label>
+      </div>
+      <p class="campo__error" id="e-privacidad"></p>
+
+      <button class="btn btn--ink" type="submit">Enviar</button>
+      <p class="form__estado" id="f-estado" role="status" aria-live="polite"></p>
+    </form>
+
+    <!-- Datos de la caseta y plano dibujado / Hut details and drawn plan -->
+    <div class="contacto-lado" data-r style="--i:1">
+      <dl class="dir-lista">
+        <dt>Dónde</dt><dd>Caseta Racha</dd><dd>Calle Cometa Varada, 3</dd><dd>11380 Tarifa, Cádiz</dd>
+        <dt>Cuándo</dt><dd>Todos los días, de 10 a 20 h</dd>
+        <dt>Correo</dt><dd><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></dd>
+      </dl>
+      <figure class="plano">
+        <!-- Plano dibujado, sin escala / Drawn plan, not to scale -->
+        <svg viewBox="0 0 400 300" role="img" aria-labelledby="plano-t">
+          <title id="plano-t">Plano: la caseta está en la Calle Cometa Varada, entre la carretera y la playa de Los Lances</title>
+          <rect width="400" height="300" fill="#c5c5c5"/>
+          <path d="M0 230 C120 210 260 250 400 225 V300 H0 Z" fill="#ff6831"/>
+          <path d="M0 214 C120 194 260 234 400 209 L400 228 C260 252 120 212 0 232 Z" fill="#ffffff"/>
+          <path d="M0 60 H400" stroke="#000" stroke-width="14"/>
+          <path d="M180 60 V200" stroke="#000" stroke-width="8"/>
+          <rect x="196" y="120" width="40" height="40" fill="#a7ff9c" stroke="#000" stroke-width="4"/>
+          <text x="20" y="44" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="18" font-weight="800">Carretera a Cádiz</text>
+          <text x="246" y="146" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="18" font-weight="800">Caseta Racha</text>
+          <text x="246" y="170" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="14" font-weight="500">C. Cometa Varada, 3</text>
+          <text x="20" y="276" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="18" font-weight="800">Playa de Los Lances</text>
+        </svg>
+        <figcaption>Plano dibujado, sin escala. La calle y la caseta son inventadas.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== PIE COMÚN / COMMON FOOTER ===================== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__inv">
+      <h2 class="pie__h" data-r style="--i:0">¿sopla mañana?<br>vente.</h2>
+      <a class="btn" data-r style="--i:1" href="contacto.html#formulario">Escríbenos</a>
+    </div>
+    <ul class="pie__links" data-r style="--i:2">
+      <li><a class="lnk" href="cursos.html">Cursos</a></li>
+      <li><a class="lnk" href="spots.html">Spots</a></li>
+      <li><a class="lnk" href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a class="lnk" href="contacto.html">Contacto</a></li>
+      <li><a class="lnk" href="mailto:hola@racha.example">hola@racha.example</a></li>
+    </ul>
+  </div>
+  <!-- El nombre a todo el ancho, entero / The name across the full width, whole -->
+  <p class="pie__mark" aria-hidden="true"><span data-r style="--i:0">racha</span></p>
+  <!-- Aviso de demostración y enlaces legales / Demo notice and legal links -->
+  <div class="pie__legal">
+    <p class="pie__demo">Marca ficticia. Web de demostración de <a class="lnk" href="https://danimefle.com">danimefle.com</a></p>
+    <ul>
+      <li><a class="lnk" href="aviso-legal.html">Aviso legal</a></li>
+      <li><a class="lnk" href="privacidad.html">Privacidad</a></li>
+      <li><a class="lnk" href="cookies.html">Cookies</a></li>
+      <li><a class="lnk" href="creditos.html">Créditos</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
