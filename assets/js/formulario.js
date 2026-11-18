@@ -32,11 +32,17 @@
   function param(nombre) {
     try { var v = q.get(nombre); return v === null ? '' : String(v).trim().toLowerCase(); } catch (e) { return ''; }
   }
+  // hasOwnProperty.call funciona también en navegadores sin Object.hasOwn
+  // hasOwnProperty.call also works in browsers without Object.hasOwn
+  var tiene = function (obj, clave) { return Object.prototype.hasOwnProperty.call(obj, clave); };
   var curso = param('curso');
-  if (curso && Object.hasOwn(CURSOS, curso)) campo('f-curso').value = curso;
+  if (curso && tiene(CURSOS, curso)) campo('f-curso').value = curso;
   var viento = param('viento');
-  var nudos = parseInt(param('nudos'), 10);
-  if (Object.hasOwn(VIENTOS, viento) && nudos >= 4 && nudos <= 40) {
+  // Los nudos solo valen como entero decimal completo («18abc» o «18.5» no cuentan)
+  // Knots only count as a whole decimal integer ("18abc" or "18.5" do not count)
+  var textoNudos = param('nudos');
+  var nudos = /^\d{1,2}$/.test(textoNudos) ? Number(textoNudos) : NaN;
+  if (tiene(VIENTOS, viento) && nudos >= 4 && nudos <= 40) {
     campo('f-mensaje').value = 'Vengo del parte del viento: ' + VIENTOS[viento] + ' de ' + nudos + ' nudos. ¿Qué clase me tocaría?';
   }
 
@@ -82,6 +88,9 @@
     estado.textContent = 'Gracias, ' + nombre + '. Esta web es una demostración: el formulario no ha enviado ni guardado nada.';
   });
 
-  // El manejador ya está puesto: ahora sí se puede pulsar / The handler is in place: now it can be pressed
+  // El manejador ya está puesto: ahora sí se puede pulsar y sobra el aviso de «sin JavaScript»
+  // The handler is in place: now it can be pressed and the "no JavaScript" note is no longer needed
   if (boton) boton.disabled = false;
+  var aviso = document.getElementById('f-sin-js');
+  if (aviso) aviso.hidden = true;
 })();

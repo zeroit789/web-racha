@@ -23,9 +23,14 @@
   // On-screen direction of travel: -1 left (Levante), +1 right (Poniente)
   function sentido() { return estado.dir === 'levante' ? -1 : 1; }
 
-  // ¿Está pausado el movimiento? (botón de pausa o movimiento reducido al cargar)
-  // Is motion paused? (pause button or reduced motion on load)
-  function pausado() { return document.documentElement.classList.contains('pausa'); }
+  // ¿Está pausado el movimiento? (botón de pausa o movimiento reducido al cargar). Sin la clase
+  // movimiento-listo, que pone movimiento.js al conectar el botón de pausa, todo se queda quieto.
+  // Is motion paused? (pause button or reduced motion on load). Without the movimiento-listo class,
+  // set by movimiento.js when it wires the pause button, everything stays still.
+  function pausado() {
+    var raiz = document.documentElement;
+    return raiz.classList.contains('pausa') || !raiz.classList.contains('movimiento-listo');
+  }
 
   // Racha: el Levante llega a golpes; el Poniente es más constante
   // Gust: Levante comes in bursts; Poniente is steadier

@@ -3,8 +3,10 @@
   movimiento continuo y vídeo en bucle.
   movimiento.js: staggered entrances for each section, accessible phone menu, pause button for
   continuous motion and looping video.
-  Los estados ocultos solo existen con la clase "js" y sin «reducir movimiento» (ver estilos.css).
-  Hidden states only exist with the "js" class and without reduced motion (see estilos.css).
+  Los estados ocultos y las animaciones continuas solo existen con las clases que pone este script
+  después de instalar sus manejadores (entradas-listas, menu-listo, movimiento-listo; ver estilos.css).
+  Hidden states and continuous animations only exist with the classes this script sets after
+  installing its handlers (entradas-listas, menu-listo, movimiento-listo; see estilos.css).
 */
 (function () {
   'use strict';
@@ -29,7 +31,19 @@
         if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
-    piezas.forEach(function (el) { io.observe(el); });
+    // Si la página ya se pintó con contenido (el script llegó tarde), lo que está en pantalla se queda
+    // visible y no se vigila, para que no parpadee; si aún no se pintó, todo entra animado como siempre
+    // If the page already painted content (the script arrived late), what is on screen stays visible
+    // and is not watched, so it does not flicker; if nothing was painted yet, everything animates in as usual
+    var pintada = !performance.getEntriesByName || performance.getEntriesByName('first-contentful-paint').length > 0;
+    piezas.forEach(function (el) {
+      var caja = el.getBoundingClientRect();
+      if (pintada && caja.top < window.innerHeight && caja.bottom > 0) el.classList.add('is-in');
+      else io.observe(el);
+    });
+    // Solo ahora, con el observador puesto, el CSS puede ocultar lo que aún no ha entrado
+    // Only now, with the observer in place, may the CSS hide what has not entered yet
+    html.classList.add('entradas-listas');
 
     // Red de seguridad: lo que ya quedó por encima de la pantalla se muestra igualmente
     // Safety net: anything already above the screen is shown anyway
@@ -92,9 +106,35 @@
       if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
       else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
     });
-    // Al pasar a escritorio con el menú abierto, se cierra y se quita el inert
-    // When switching to desktop with the menu open, it closes and inert is removed
-    window.matchMedia('(min-width: 861px)').addEventListener('change', function (m) { if (m.matches) cerrarMenu(false); });
+    // Al cruzar el punto de corte (la misma media query que el CSS), el menú abierto se cierra y el
+    // foco nunca se queda en algo oculto: en escritorio pasa al enlace equivalente de la barra (o al
+    // primero visible); en móvil, si estaba en un enlace que se pliega, pasa al botón «Menú».
+    // When crossing the breakpoint (the same media query as the CSS), an open menu closes and focus
+    // never stays on something hidden: on desktop it moves to the matching bar link (or the first
+    // visible one); on mobile, if it was on a link that folds, it moves to the "Menu" button.
+    var barra = boton.closest('.barra') || document.querySelector('.barra');
+    var visible = function (el) { return el.getClientRects().length > 0; };
+    // El navegador puede quitar el foco de lo que se oculta antes de avisar del cambio (queda en body):
+    // se recuerda el último elemento enfocado; un clic con el puntero lo olvida
+    // The browser may drop focus from what hides before reporting the change (it lands on body): the
+    // last focused element is remembered; a pointer click forgets it
+    var ultimoFoco = null;
+    document.addEventListener('focusin', function (e) { ultimoFoco = e.target; });
+    document.addEventListener('pointerdown', function () { ultimoFoco = null; });
+    window.matchMedia('(max-width: 860px)').addEventListener('change', function (m) {
+      var activo = document.activeElement;
+      if (!activo || activo === document.body) activo = ultimoFoco;
+      if (!activo) return;
+      var desdePanel = panel.contains(activo);
+      var enMenu = desdePanel || (barra && barra.contains(activo));
+      if (!m.matches) cerrarMenu(false);
+      if (!enMenu || visible(activo)) return;
+      if (m.matches) { boton.focus(); return; }
+      var enlaces = Array.prototype.slice.call(barra.querySelectorAll('a[href]')).filter(visible);
+      var destino = desdePanel && activo.getAttribute('href') ? enlaces.filter(function (a) { return a.getAttribute('href') === activo.getAttribute('href'); })[0] : null;
+      destino = destino || enlaces[0];
+      if (destino) destino.focus();
+    });
     // Solo ahora se pliegan los enlaces / Only now do the links fold
     html.classList.add('menu-listo');
   }
@@ -128,6 +168,12 @@
     pausa.hidden = false;
     pausa.addEventListener('click', function () { aplicarPausa(!pausado()); });
     aplicarPausa(pausado());
+    // Si el visitante activa «reducir movimiento» con la página abierta, se pausa todo igual que con el botón
+    // If the visitor turns on reduced motion with the page open, everything pauses just like with the button
+    if (reducir.addEventListener) reducir.addEventListener('change', function (m) { if (m.matches) aplicarPausa(true); });
+    // Con el botón ya conectado, el CSS puede animar la duna y las flechas (sin JS se quedan quietas)
+    // With the button wired, the CSS may animate the dune and the arrows (without JS they stay still)
+    html.classList.add('movimiento-listo');
   }
 
   // ---------- Vídeo en bucle / Looping video ----------

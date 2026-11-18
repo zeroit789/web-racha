@@ -22,7 +22,8 @@ const TIPOS = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webm': 'video/webm',
-  '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.md': 'text/plain; charset=utf-8'
+  '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.md': 'text/plain; charset=utf-8',
+  '.ico': 'image/x-icon'
 };
 
 // Lee las cabeceras del fichero _headers (bloque «/*») / Reads the headers from the _headers file ("/*" block)
@@ -61,12 +62,18 @@ function texto(res, codigo, msg) {
   res.end(msg);
 }
 
-// Envía un fichero ya comprobado / Sends an already checked file
+// Envía un fichero ya comprobado. Primero lo abre y solo después manda las cabeceras: si no se puede
+// abrir, responde 500 en vez de un 200 vacío.
+// Sends an already checked file. It opens it first and only then sends the headers: if it cannot be
+// opened, it answers 500 instead of an empty 200.
 function enviar(res, codigo, f) {
-  res.writeHead(codigo, { ...CABECERAS, 'Content-Type': TIPOS[path.extname(f)] || 'application/octet-stream' });
-  const flujo = fs.createReadStream(f);
-  flujo.on('error', () => { if (!res.headersSent) texto(res, 500, '500'); else res.destroy(); });
-  flujo.pipe(res);
+  fs.open(f, 'r', (error, fd) => {
+    if (error) return texto(res, 500, '500');
+    res.writeHead(codigo, { ...CABECERAS, 'Content-Type': TIPOS[path.extname(f)] || 'application/octet-stream' });
+    const flujo = fs.createReadStream(f, { fd });
+    flujo.on('error', () => res.destroy());
+    flujo.pipe(res);
+  });
 }
 
 // Sirve un fichero o la página 404, como Cloudflare Pages / Serves a file or the 404 page, like Cloudflare Pages

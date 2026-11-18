@@ -144,7 +144,9 @@
       <!-- El botón nace desactivado: solo el JS lo activa, tras instalar el manejador que no envía nada -->
       <!-- The button starts disabled: only the JS enables it, after installing the handler that sends nothing -->
       <button class="btn btn--ink" type="submit" disabled>Enviar</button>
-      <noscript><p class="form__estado">Sin JavaScript este formulario no funciona. La alternativa sería escribir a hola@racha.example, pero es un correo de ejemplo y no llega a ninguna parte.</p></noscript>
+      <!-- Aviso visible por defecto: formulario.js lo oculta al activar el botón (también sale si el script falla) -->
+      <!-- Note visible by default: formulario.js hides it when enabling the button (it also shows if the script fails) -->
+      <p class="form__estado" id="f-sin-js">Este formulario necesita JavaScript y no se ha podido activar. La alternativa sería escribir a hola@racha.example, pero es un correo de ejemplo y no llega a ninguna parte.</p>
       <p class="form__estado" id="f-estado" role="status" aria-live="polite"></p>
     </form>
 

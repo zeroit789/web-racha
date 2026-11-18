@@ -595,40 +595,42 @@ a { color: inherit; }
 .pie__legal .credits { max-width: 70ch; text-align: right; }
 
 /* ===================== MOVIMIENTO / MOTION ===================== */
-/* Estados ocultos SOLO con JS y sin «reducir movimiento»: sin JS todo se ve */
-/* Hidden states ONLY with JS and without reduced motion: without JS everything shows */
+/* Estados ocultos SOLO cuando movimiento.js ya vigila (clase entradas-listas) y sin «reducir movimiento»:
+   sin JS, o si ese script falla, todo se ve */
+/* Hidden states ONLY once movimiento.js is watching (entradas-listas class) and without reduced motion:
+   without JS, or if that script fails, everything shows */
 @media (prefers-reduced-motion: no-preference) {
-  html.js [data-r] {
+  html.entradas-listas [data-r] {
     opacity: 0;
     transform: translateY(26px);
     transition: opacity var(--t-reveal) var(--ease-expo), transform var(--t-reveal) var(--ease-expo);
     transition-delay: calc(var(--i, 0) * 80ms);
   }
-  html.js [data-r].is-in { opacity: 1; transform: none; }
+  html.entradas-listas [data-r].is-in { opacity: 1; transform: none; }
   /* El lema sube desde su máscara / The slogan rises from its mask */
-  html.js .slogan [data-r] { transform: translateY(105%); opacity: 1; transition-duration: 1000ms; }
-  html.js .slogan [data-r].is-in { transform: none; }
+  html.entradas-listas .slogan [data-r] { transform: translateY(105%); opacity: 1; transition-duration: 1000ms; }
+  html.entradas-listas .slogan [data-r].is-in { transform: none; }
   /* La palabra de la baldosa B entra desde la derecha / Tile B's word slides in from the right */
-  html.js .tile__word[data-r] { transform: translateX(40%); }
-  html.js .tile__word[data-r].is-in { transform: none; }
+  html.entradas-listas .tile__word[data-r] { transform: translateX(40%); }
+  html.entradas-listas .tile__word[data-r].is-in { transform: none; }
   /* Las filas de contacto entran desde la izquierda / Contact rows enter from the left */
-  html.js .fila[data-r] { transform: translateX(-32px); }
-  html.js .fila[data-r].is-in { transform: none; }
+  html.entradas-listas .fila[data-r] { transform: translateX(-32px); }
+  html.entradas-listas .fila[data-r].is-in { transform: none; }
   /* El nombre del pie sube desde abajo / The footer name rises from below */
-  html.js .pie__mark [data-r] { transform: translateY(35%); transition-duration: 1200ms; }
-  html.js .pie__mark [data-r].is-in { transform: none; }
+  html.entradas-listas .pie__mark [data-r] { transform: translateY(35%); transition-duration: 1200ms; }
+  html.entradas-listas .pie__mark [data-r].is-in { transform: none; }
 }
-/* La foto de la duna se mueve despacio; se para con el botón de pausa o con movimiento reducido */
-/* The dune photo drifts slowly; it stops with the pause button or with reduced motion */
-.intro__pic img { animation: deriva 14s var(--ease-soft) infinite alternate; }
+/* La foto de la duna se mueve despacio; se para con el botón de pausa o con movimiento reducido.
+   Solo se anima cuando el botón de pausa ya funciona (clase movimiento-listo): sin JS se queda quieta */
+/* The dune photo drifts slowly; it stops with the pause button or with reduced motion.
+   It only animates once the pause button works (movimiento-listo class): without JS it stays still */
+html.movimiento-listo .intro__pic img { animation: deriva 14s var(--ease-soft) infinite alternate; }
 @keyframes deriva { from { transform: scale(1.12) translateX(-3%); } to { transform: scale(1.02) translateX(2%); } }
 /* Pausa: el botón (o el movimiento reducido al cargar) para todas las animaciones continuas */
 /* Pause: the button (or reduced motion on load) stops every continuous animation */
 html.pausa .intro__pic img, html.pausa .m-flecha { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  /* Sin JS no hay botón: con movimiento reducido no se anima nada / Without JS there is no button: nothing animates */
-  html:not(.js) .intro__pic img, html:not(.js) .m-flecha { animation: none; }
 }
 
 /* ===================== MÓVIL / PHONE (≤ 760 px) ===================== */
@@ -999,9 +1001,10 @@ html.menu-abierto { overflow: hidden; }
 .m-flechas.is-poniente { transform: scaleX(-1); }
 /* Las flechas avanzan y se desvanecen en el sentido del viento (se paran con la pausa) */
 /* Arrows travel and fade in the wind's direction (they stop with the pause) */
-.m-flecha { animation: soplo 2.2s linear infinite; }
-.m-flecha:nth-child(2) { animation-delay: -0.7s; }
-.m-flecha:nth-child(3) { animation-delay: -1.4s; }
+/* Como la duna, solo se animan con el botón de pausa ya conectado / Like the dune, they only animate once the pause button is wired */
+html.movimiento-listo .m-flecha { animation: soplo 2.2s linear infinite; }
+html.movimiento-listo .m-flecha:nth-child(2) { animation-delay: -0.7s; }
+html.movimiento-listo .m-flecha:nth-child(3) { animation-delay: -1.4s; }
 @keyframes soplo { 0% { transform: translateX(40px); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateX(-40px); opacity: 0; } }
 
 /* Ficha de spot: foto y texto, alternando lado / Spot card: photo and text, alternating sides */
