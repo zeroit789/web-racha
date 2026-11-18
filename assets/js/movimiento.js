@@ -1,12 +1,15 @@
 /*
-  movimiento.js: entradas escalonadas de cada sección, menú del móvil accesible y vídeo en bucle.
-  movimiento.js: staggered entrances for each section, accessible phone menu and looping video.
+  movimiento.js: entradas escalonadas de cada sección, menú del móvil accesible, botón de pausa del
+  movimiento continuo y vídeo en bucle.
+  movimiento.js: staggered entrances for each section, accessible phone menu, pause button for
+  continuous motion and looping video.
   Los estados ocultos solo existen con la clase "js" y sin «reducir movimiento» (ver estilos.css).
   Hidden states only exist with the "js" class and without reduced motion (see estilos.css).
 */
 (function () {
   'use strict';
 
+  var html = document.documentElement;
   var reducir = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   // ---------- Entradas al hacer scroll / Scroll entrances ----------
@@ -38,12 +41,19 @@
   }
 
   // ---------- Menú del móvil / Phone menu ----------
-  // Al abrir: el foco entra en el panel y no sale con Tab; Escape o «Cerrar» lo cierran
-  // y el foco vuelve al botón «Menú».
-  // On open: focus moves into the panel and Tab cannot leave it; Escape or "Close" shuts it
-  // and focus returns to the "Menu" button.
+  // Sin JS, los enlaces se ven en la barra. Con JS, la clase «menu-listo» los pliega tras el botón.
+  // Al abrir: el foco entra en el panel, Tab no sale de él y el resto de la página queda inerte;
+  // Escape o «Cerrar» lo cierran y el foco vuelve al botón «Menú».
+  // Without JS, the links show in the bar. With JS, the "menu-listo" class folds them behind the button.
+  // On open: focus moves into the panel, Tab cannot leave it and the rest of the page is inert;
+  // Escape or "Close" shuts it and focus returns to the "Menu" button.
   var boton = document.querySelector('.barra__menu');
   var panel = document.getElementById('menu-movil');
+
+  // Partes de la página que quedan inertes con el menú abierto / Page parts made inert while the menu is open
+  function resto() {
+    return Array.prototype.slice.call(document.body.children).filter(function (el) { return el !== panel && el.tagName !== 'SCRIPT'; });
+  }
 
   // Elementos que pueden recibir el foco dentro del panel / Focusable elements inside the panel
   function enfocables() {
@@ -53,7 +63,8 @@
   function abrirMenu() {
     panel.hidden = false;
     boton.setAttribute('aria-expanded', 'true');
-    document.documentElement.classList.add('menu-abierto');
+    html.classList.add('menu-abierto');
+    resto().forEach(function (el) { el.inert = true; });
     var lista = enfocables();
     if (lista.length > 1) lista[1].focus(); else if (lista.length) lista[0].focus();
   }
@@ -62,7 +73,8 @@
     if (panel.hidden) return;
     panel.hidden = true;
     boton.setAttribute('aria-expanded', 'false');
-    document.documentElement.classList.remove('menu-abierto');
+    html.classList.remove('menu-abierto');
+    resto().forEach(function (el) { el.inert = false; });
     if (devolverFoco !== false) boton.focus();
   }
 
@@ -80,21 +92,51 @@
       if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
       else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
     });
-    // Si la ventana crece hasta escritorio, el panel se cierra / If the window grows to desktop, the panel closes
+    // Al pasar a escritorio con el menú abierto, se cierra y se quita el inert
+    // When switching to desktop with the menu open, it closes and inert is removed
     window.matchMedia('(min-width: 861px)').addEventListener('change', function (m) { if (m.matches) cerrarMenu(false); });
+    // Solo ahora se pliegan los enlaces / Only now do the links fold
+    html.classList.add('menu-listo');
+  }
+
+  // ---------- Pausa del movimiento continuo / Pause for continuous motion ----------
+  // La cinta, el lienzo de viento, la deriva de la duna, las flechas del mapa y el vídeo se paran
+  // con este botón. Con «reducir movimiento» la página carga en pausa (temprano.js) y el botón
+  // los vuelve a poner en marcha.
+  // The tape, wind canvas, dune drift, map arrows and video stop with this button. With reduced
+  // motion the page loads paused (temprano.js) and the button starts them again.
+  var pausa = document.querySelector('.barra__pausa');
+  var video = document.querySelector('.loop');
+  var videoVisible = false;
+
+  function pausado() { return html.classList.contains('pausa'); }
+
+  // Arranca o para el vídeo según la pausa y si se ve / Starts or stops the video depending on pause and visibility
+  function gobernarVideo() {
+    if (!video) return;
+    if (!pausado() && videoVisible) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+    else video.pause();
+  }
+
+  function aplicarPausa(p) {
+    html.classList.toggle('pausa', p);
+    if (pausa) pausa.textContent = p ? 'Reanudar movimiento' : 'Pausar movimiento';
+    gobernarVideo();
+  }
+
+  if (pausa && document.querySelector('[data-continuo]')) {
+    pausa.hidden = false;
+    pausa.addEventListener('click', function () { aplicarPausa(!pausado()); });
+    aplicarPausa(pausado());
   }
 
   // ---------- Vídeo en bucle / Looping video ----------
-  // Con «reducir movimiento» se para; fuera de pantalla se pausa para no gastar
-  // Stops under reduced motion; pauses off screen to save power
-  var video = document.querySelector('.loop');
-  if (video) {
-    if (reducir.matches) { video.pause(); video.removeAttribute('autoplay'); }
-    else if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (e) {
-        if (e[0].isIntersecting) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-        else video.pause();
-      }).observe(video);
-    }
+  // Sin autoplay en el HTML: solo se reproduce si no hay pausa y está en pantalla
+  // No autoplay in the HTML: it only plays when not paused and on screen
+  if (video && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) {
+      videoVisible = e[0].isIntersecting;
+      gobernarVideo();
+    }).observe(video);
   }
 })();

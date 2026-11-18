@@ -58,6 +58,8 @@
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
+  <!-- Pausa del movimiento continuo (solo aparece si la página lo tiene) / Pause for continuous motion (only shown if the page has it) -->
+  <button class="barra__pausa" type="button" hidden>Pausar movimiento</button>
   <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
   <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
 </header>
@@ -108,7 +110,7 @@
         <text class="m-texto" x="40" y="540">el Estrecho</text>
         <text class="m-texto" x="960" y="50" text-anchor="end">N ↑</text>
         <!-- Flechas de viento (Levante: hacia el oeste) / Wind arrows (Levante: towards the west) -->
-        <g class="m-flechas" id="m-flechas">
+        <g class="m-flechas" id="m-flechas" data-continuo>
           <path class="m-flecha" d="M720 450 H520 M540 436 L520 450 L540 464"/>
           <path class="m-flecha" d="M600 510 H400 M420 496 L400 510 L420 524"/>
           <path class="m-flecha" d="M380 400 H200 M220 386 L200 400 L220 414"/>

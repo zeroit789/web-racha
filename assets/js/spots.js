@@ -28,7 +28,7 @@
     spots.forEach(function (s) { s.classList.toggle('is-activo', s.getAttribute('data-spot') === v); });
     if (flechas) flechas.classList.toggle('is-poniente', v === 'poniente');
     if (res) {
-      res.innerHTML = '';
+      res.textContent = '';
       var fuerte = document.createElement('strong');
       fuerte.textContent = TEXTOS[v][0];
       res.appendChild(fuerte);

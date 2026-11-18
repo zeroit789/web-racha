@@ -5,3 +5,6 @@
   So the hidden entrance states only apply when JavaScript runs.
 */
 document.documentElement.classList.add('js');
+// Con «reducir movimiento», todo lo continuo empieza en pausa (el botón lo puede reanudar)
+// With reduced motion, everything continuous starts paused (the button can resume it)
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('pausa');

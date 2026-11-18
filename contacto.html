@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contacto · Racha, escuela de kite en Tarifa</title>
-  <meta name="description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <meta name="description" content="Formulario de contacto de demostración de Racha, escuela de kitesurf ficticia en Tarifa: no envía nada.">
   <!-- Negocio ficticio: que no salga en buscadores / Fictitious business: keep it out of search engines -->
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://racha.danimefle.com/contacto.html">
@@ -19,14 +19,14 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:url" content="https://racha.danimefle.com/contacto.html">
   <meta property="og:title" content="Contacto · Racha, escuela de kite en Tarifa">
-  <meta property="og:description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <meta property="og:description" content="Formulario de contacto de demostración de Racha, escuela de kitesurf ficticia en Tarifa: no envía nada.">
   <meta property="og:image" content="https://racha.danimefle.com/assets/og/og-contacto.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Contacto de Racha">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contacto · Racha, escuela de kite en Tarifa">
-  <meta name="twitter:description" content="Escríbenos para reservar un curso: te contestamos con la playa y la hora según el parte. Formulario de demostración.">
+  <meta name="twitter:description" content="Formulario de contacto de demostración de Racha, escuela de kitesurf ficticia en Tarifa: no envía nada.">
   <meta name="twitter:image" content="https://racha.danimefle.com/assets/og/og-contacto.jpg">
   <meta name="theme-color" content="#a7ff9c">
   <!-- Iconos y manifiesto / Icons and manifest -->
@@ -58,6 +58,8 @@
         <li><a href="contacto.html" aria-current="page">Contacto</a></li>
     </ul>
   </nav>
+  <!-- Pausa del movimiento continuo (solo aparece si la página lo tiene) / Pause for continuous motion (only shown if the page has it) -->
+  <button class="barra__pausa" type="button" hidden>Pausar movimiento</button>
   <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
   <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
 </header>
@@ -81,7 +83,7 @@
 <section class="cabeza cabeza--menta" aria-labelledby="t-pagina">
   <h1 class="cabeza__h" id="t-pagina" data-r style="--i:0">escríbenos</h1>
   <div class="cabeza__txt" data-r style="--i:1">
-    <p class="cabeza__lead">Cuéntanos qué curso te interesa y qué días estás en Tarifa. Te contestamos con la playa y la hora según el parte.</p>
+    <p class="cabeza__lead">Cuéntanos qué curso te interesa y qué días estás en Tarifa. Es una web de demostración: el formulario no envía nada y nadie lo lee.</p>
   </div>
 </section>
 
@@ -90,26 +92,26 @@
   <div class="contacto-grid">
     <!-- Formulario de demostración: no envía ni guarda nada (ver formulario.js) -->
     <!-- Demo form: sends and stores nothing (see formulario.js) -->
-    <form class="form" id="formulario" action="contacto.html" method="post" novalidate aria-labelledby="t-form">
+    <form class="form" id="formulario" novalidate aria-labelledby="t-form">
       <h2 class="bloque__h" id="t-form">tu reserva</h2>
       <p class="campo__ayuda">Todos los campos son obligatorios salvo el mensaje. Esta web es una demostración: el formulario no envía nada.</p>
 
       <div class="campo">
         <label for="f-nombre">Nombre</label>
-        <input type="text" id="f-nombre" name="nombre" autocomplete="given-name" required aria-describedby="e-nombre">
+        <input type="text" id="f-nombre" autocomplete="given-name" required aria-describedby="e-nombre">
         <p class="campo__error" id="e-nombre"></p>
       </div>
 
       <div class="campo">
         <label for="f-correo">Correo electrónico</label>
-        <input type="email" id="f-correo" name="correo" autocomplete="email" required aria-describedby="a-correo e-correo">
+        <input type="email" id="f-correo" autocomplete="email" required aria-describedby="a-correo e-correo">
         <p class="campo__ayuda" id="a-correo">Por ejemplo, nombre@dominio.es</p>
         <p class="campo__error" id="e-correo"></p>
       </div>
 
       <div class="campo">
         <label for="f-curso">Curso</label>
-        <select id="f-curso" name="curso" required aria-describedby="e-curso">
+        <select id="f-curso" required aria-describedby="e-curso">
           <option value="">Elige uno</option>
           <option value="bautismo">Bautismo · 75 €</option>
           <option value="iniciacion">Iniciación · 320 €</option>
@@ -123,23 +125,26 @@
 
       <div class="campo">
         <label for="f-dias">Días que estás en Tarifa</label>
-        <input type="text" id="f-dias" name="dias" required aria-describedby="a-dias e-dias">
+        <input type="text" id="f-dias" required aria-describedby="a-dias e-dias">
         <p class="campo__ayuda" id="a-dias">Como quieras escribirlo: «del 3 al 7 de julio», «fines de semana de agosto».</p>
         <p class="campo__error" id="e-dias"></p>
       </div>
 
       <div class="campo">
         <label for="f-mensaje">Mensaje <span class="campo__ayuda">(opcional)</span></label>
-        <textarea id="f-mensaje" name="mensaje" rows="5"></textarea>
+        <textarea id="f-mensaje" rows="5"></textarea>
       </div>
 
       <div class="campo campo--check">
-        <input type="checkbox" id="f-privacidad" name="privacidad" required aria-describedby="e-privacidad">
+        <input type="checkbox" id="f-privacidad" required aria-describedby="e-privacidad">
         <label for="f-privacidad">He leído la <a href="privacidad.html">política de privacidad</a>.</label>
       </div>
       <p class="campo__error" id="e-privacidad"></p>
 
-      <button class="btn btn--ink" type="submit">Enviar</button>
+      <!-- El botón nace desactivado: solo el JS lo activa, tras instalar el manejador que no envía nada -->
+      <!-- The button starts disabled: only the JS enables it, after installing the handler that sends nothing -->
+      <button class="btn btn--ink" type="submit" disabled>Enviar</button>
+      <noscript><p class="form__estado">Sin JavaScript este formulario no funciona. La alternativa sería escribir a hola@racha.example, pero es un correo de ejemplo y no llega a ninguna parte.</p></noscript>
       <p class="form__estado" id="f-estado" role="status" aria-live="polite"></p>
     </form>
 

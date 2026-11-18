@@ -60,6 +60,8 @@
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
+  <!-- Pausa del movimiento continuo (solo aparece si la página lo tiene) / Pause for continuous motion (only shown if the page has it) -->
+  <button class="barra__pausa" type="button" hidden>Pausar movimiento</button>
   <a class="btn btn--sm barra__cta" href="contacto.html#formulario">Reservar</a>
   <button class="barra__menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
 </header>
@@ -88,7 +90,7 @@
        The tape moves with the chosen wind; the first copy is the real text and the rest are hidden
        from screen readers. -->
   <div class="hero__mid">
-    <h1 class="hero__line" data-linea>
+    <h1 class="hero__line" data-linea data-continuo>
       <span class="hero__track" data-pista>
         <span class="hero__seg">racha kite tarifa<span class="hero__pic"><img src="assets/img/kiter-cuadrado.webp" width="720" height="720" alt="" fetchpriority="high"></span></span>
         <span class="hero__seg" aria-hidden="true">racha kite tarifa<span class="hero__pic"><img src="assets/img/isla-cuadrado.webp" width="720" height="720" alt=""></span></span>
@@ -127,14 +129,14 @@
     <!-- Baldosa C: la imagen en movimiento (bucle mudo con póster) -->
     <!-- Tile C: the moving picture (muted loop with a poster) -->
     <div class="tile tile--c">
-      <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/video/cometas-atardecer-poster.webp" width="854" height="384" aria-hidden="true">
+      <video class="loop" muted loop playsinline preload="metadata" data-continuo poster="assets/video/cometas-atardecer-poster.webp" width="854" height="384" aria-hidden="true">
         <source src="assets/video/cometas-atardecer.webm" type="video/webm">
       </video>
     </div>
     <!-- Baldosa D: foto de la duna a la izquierda y el texto largo a la derecha -->
     <!-- Tile D: dune photo on the left and the long text on the right -->
     <div class="tile tile--d">
-      <figure class="intro__pic" data-r style="--i:0">
+      <figure class="intro__pic" data-continuo data-r style="--i:0">
         <img src="assets/img/duna.webp" width="1600" height="1092" alt="La arena de la duna de Valdevaqueros, rizada por el viento, con matas de barrón" loading="lazy" decoding="async">
       </figure>
       <p class="intro__text" data-r style="--i:1">Racha es una escuela pequeña de kitesurf en Tarifa, la punta sur de Europa, en el paralelo 36, donde el Estrecho hace de embudo para el viento. Cada mañana a las nueve miramos el parte, salimos a la arena a sentir el aire y decidimos dónde se da la clase: con Levante nos vamos a Valdevaqueros, que lo recibe de costado; con Poniente nos quedamos en Los Lances, la playa larga que mira a la isla. Nunca más de cuatro alumnos por monitor, radio en el casco y lancha en el agua cuando el viento sopla de tierra. Si no hay viento, no hay clase y no se cobra: se cambia de día sin preguntas.</p>
@@ -171,7 +173,7 @@
     <!-- Right column: the stage (wind streaks and kites) and the answer -->
     <div class="viento__out">
       <div class="stage" data-r style="--i:1" aria-hidden="true">
-        <canvas class="stage__wind" width="800" height="420"></canvas>
+        <canvas class="stage__wind" width="800" height="420" data-continuo></canvas>
         <svg class="stage__kites" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet">
           <!-- Tres cometas de arco: su tamaño sigue a los m² recomendados -->
           <!-- Three arc kites: their size follows the recommended m² -->

@@ -617,15 +617,18 @@ a { color: inherit; }
   /* El nombre del pie sube desde abajo / The footer name rises from below */
   html.js .pie__mark [data-r] { transform: translateY(35%); transition-duration: 1200ms; }
   html.js .pie__mark [data-r].is-in { transform: none; }
-  /* La foto de la duna sigue moviéndose despacio / The dune photo keeps drifting slowly */
-  .intro__pic img { animation: deriva 14s var(--ease-soft) infinite alternate; }
-  @keyframes deriva { from { transform: scale(1.12) translateX(-3%); } to { transform: scale(1.02) translateX(2%); } }
 }
-/* Con movimiento reducido el vídeo se queda en el póster / With reduced motion the video stays on its poster */
+/* La foto de la duna se mueve despacio; se para con el botón de pausa o con movimiento reducido */
+/* The dune photo drifts slowly; it stops with the pause button or with reduced motion */
+.intro__pic img { animation: deriva 14s var(--ease-soft) infinite alternate; }
+@keyframes deriva { from { transform: scale(1.12) translateX(-3%); } to { transform: scale(1.02) translateX(2%); } }
+/* Pausa: el botón (o el movimiento reducido al cargar) para todas las animaciones continuas */
+/* Pause: the button (or reduced motion on load) stops every continuous animation */
+html.pausa .intro__pic img, html.pausa .m-flecha { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .loop { display: none; }
-  .tile--c { background: url("../video/cometas-atardecer-poster.webp") center / cover no-repeat; }
+  /* Sin JS no hay botón: con movimiento reducido no se anima nada / Without JS there is no button: nothing animates */
+  html:not(.js) .intro__pic img, html:not(.js) .m-flecha { animation: none; }
 }
 
 /* ===================== MÓVIL / PHONE (≤ 760 px) ===================== */
@@ -798,6 +801,21 @@ a { color: inherit; }
 .barra__links a[aria-current="page"] { text-decoration-color: var(--ink); text-decoration-thickness: 4px; }
 .btn--sm { min-height: 48px; padding: 0 22px; }
 .barra__menu { display: none; }
+/* Botón de pausa: texto plano subrayado, objetivo táctil de 44 px / Pause button: plain underlined text, 44px target */
+.barra__pausa {
+  min-height: 44px;
+  padding: 0 4px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+.barra__pausa[hidden] { display: none; }
 
 /* Menú del móvil: panel negro a pantalla completa, con foco atrapado (ver movimiento.js) */
 /* Phone menu: full-screen black panel, with a focus trap (see movimiento.js) */
@@ -979,13 +997,12 @@ html.menu-abierto { overflow: hidden; }
 .m-flecha { stroke: var(--ink); stroke-width: 5; fill: none; }
 .m-flechas { transition: transform 600ms var(--ease-out); transform-box: fill-box; transform-origin: center; }
 .m-flechas.is-poniente { transform: scaleX(-1); }
-@media (prefers-reduced-motion: no-preference) {
-  /* Las flechas avanzan y se desvanecen en el sentido del viento / Arrows travel and fade in the wind's direction */
-  .m-flecha { animation: soplo 2.2s linear infinite; }
-  .m-flecha:nth-child(2) { animation-delay: -0.7s; }
-  .m-flecha:nth-child(3) { animation-delay: -1.4s; }
-  @keyframes soplo { 0% { transform: translateX(40px); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateX(-40px); opacity: 0; } }
-}
+/* Las flechas avanzan y se desvanecen en el sentido del viento (se paran con la pausa) */
+/* Arrows travel and fade in the wind's direction (they stop with the pause) */
+.m-flecha { animation: soplo 2.2s linear infinite; }
+.m-flecha:nth-child(2) { animation-delay: -0.7s; }
+.m-flecha:nth-child(3) { animation-delay: -1.4s; }
+@keyframes soplo { 0% { transform: translateX(40px); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateX(-40px); opacity: 0; } }
 
 /* Ficha de spot: foto y texto, alternando lado / Spot card: photo and text, alternating sides */
 .spot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px 32px; align-items: center; padding: 64px 0; }
@@ -1094,7 +1111,15 @@ html.menu-abierto { overflow: hidden; }
   .texto__cuerpo { grid-column: 1 / 13; }
 }
 @media (max-width: 860px) {
-  .barra__links, .barra__cta { display: none; }
+  /* Sin JS los enlaces se ven (en una segunda fila); solo se pliegan cuando el menú está listo */
+  /* Without JS the links stay visible (on a second row); they fold only once the menu is ready */
+  .barra { flex-wrap: wrap; row-gap: 0; }
+  .barra__nav { order: 3; width: 100%; padding-bottom: 8px; }
+  .barra__links { flex-wrap: wrap; gap: 4px 18px; }
+  html.menu-listo .barra__nav, html.menu-listo .barra__cta { display: none; }
+  html:not(.menu-listo) .barra { padding-top: 12px; }
+  html:not(.menu-listo) .barra__menu { display: none !important; }
+  .barra__pausa { font-size: var(--step-small); }
   .barra__menu {
     display: inline-flex;
     align-items: center;

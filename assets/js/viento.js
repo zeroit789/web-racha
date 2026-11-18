@@ -23,6 +23,10 @@
   // On-screen direction of travel: -1 left (Levante), +1 right (Poniente)
   function sentido() { return estado.dir === 'levante' ? -1 : 1; }
 
+  // ¿Está pausado el movimiento? (botón de pausa o movimiento reducido al cargar)
+  // Is motion paused? (pause button or reduced motion on load)
+  function pausado() { return document.documentElement.classList.contains('pausa'); }
+
   // Racha: el Levante llega a golpes; el Poniente es más constante
   // Gust: Levante comes in bursts; Poniente is steadier
   function racha(t) {
@@ -101,7 +105,8 @@
     // Levante -> Valdevaqueros; Poniente -> Los Lances (la regla de las escuelas de Tarifa)
     // Levante -> Valdevaqueros; Poniente -> Los Lances (Tarifa schools' rule of thumb)
     r.playa = lev ? 'Valdevaqueros' : 'Los Lances';
-    r.cometa = kn < 8 ? 'Ninguna' : metros(kn) + ' m²';
+    // Sin viento o con temporal (más de 33 nudos) no se recomienda cometa / No kite with no wind or a gale (over 33 knots)
+    r.cometa = (kn < 8 || kn > 33) ? 'Ninguna' : metros(kn) + ' m²';
 
     if (kn < 8) r.curso = 'Sin viento: no hay clase y no se cobra';
     else if (kn < 12) r.curso = 'Bautismo con cometa grande';
@@ -153,7 +158,7 @@
     if (reserva) {
       reserva.href = 'contacto.html?viento=' + estado.dir + '&nudos=' + estado.kn + '#formulario';
     }
-    if (reducir.matches) dibujarQuieto();
+    if (pausado()) dibujarQuieto();
     return r;
   }
 
@@ -266,7 +271,7 @@
     var t = ahora / 1000;
     var dt = ultimo ? Math.min(0.05, t - ultimo) : 0;
     ultimo = t;
-    if (!reducir.matches) {
+    if (!pausado()) {
       moverLinea(dt, t);
       if (escenarioVisible) { pintarRayas(dt, t); pintarCometas(t); }
     }
@@ -301,7 +306,7 @@
   var espera;
   window.addEventListener('resize', function () {
     clearTimeout(espera);
-    espera = setTimeout(function () { ajustarLienzo(); medirLinea(); if (reducir.matches) dibujarQuieto(); }, 120);
+    espera = setTimeout(function () { ajustarLienzo(); medirLinea(); if (pausado()) dibujarQuieto(); }, 120);
   });
   // Si cambia la preferencia de movimiento, la línea vuelve a su copia centrada
   // If the motion preference changes, the line returns to its centred copy

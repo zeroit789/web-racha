@@ -40,7 +40,7 @@ node server.js 8080
 # abre http://127.0.0.1:8080/
 ```
 
-El servidor quita `upgrade-insecure-requests` y HSTS de la CSP porque en local se sirve por http. Guarda su PID en `.local/server.pid` (si la carpeta existe) para poder cerrarlo sin tocar otros procesos.
+El servidor quita `upgrade-insecure-requests` y HSTS de la CSP porque en local se sirve por http. Solo escucha en `127.0.0.1`, responde 400 a direcciones mal codificadas y solo sirve ficheros públicos de la carpeta (nada que empiece por punto, como `.git` o `.local`, nada fuera de la carpeta aunque sea por enlace simbólico, y nunca `server.js`). Guarda su PID en `.local/server.pid` para poder cerrarlo sin tocar otros procesos.
 
 También se puede abrir `index.html` directamente con el navegador (`file://`); en ese modo no se aplican las cabeceras.
 
@@ -60,7 +60,8 @@ También se puede abrir `index.html` directamente con el navegador (`file://`); 
 - **El parte del viento:** la lógica está en `assets/js/viento.js` (función `recomendar`): playas, nudos por curso y la fórmula de la cometa (m² ≈ peso / nudos × 2,2 para 75 kg).
 - **URL base:** `https://racha.danimefle.com` aparece solo en las etiquetas `canonical`, `og:url`, `og:image`, `twitter:image`, en el JSON-LD de la portada, en `sitemap.xml` y en `robots.txt`. Los enlaces internos son relativos. El dominio de la analítica va aparte, en el atributo `data-domain="racha.danimefle.com"` del script de Plausible de cada página.
 - **Quitar `noindex`:** si la web pasa a ser de un negocio real, borra `<meta name="robots" content="noindex, follow">` de cada página y revisa los textos legales.
-- **Formulario:** `assets/js/formulario.js` valida y limpia sin enviar. Para enviarlo de verdad hace falta un servicio de formularios y abrir su dominio en `form-action` y `connect-src` de `_headers`.
+- **Movimiento:** la cinta, el vídeo, el lienzo de viento, la duna y las flechas del mapa se paran con el botón «Pausar movimiento» de la barra. Con «reducir movimiento» la página carga en pausa y el botón los reanuda.
+- **Formulario:** `assets/js/formulario.js` valida y limpia sin enviar. Los campos no tienen `name` y el botón nace desactivado: sin JavaScript no se puede enviar nada. Para enviarlo de verdad hace falta un servicio de formularios y abrir su dominio en `form-action` y `connect-src` de `_headers`.
 
 ### Créditos y licencias
 
@@ -106,7 +107,7 @@ node server.js 8080
 # open http://127.0.0.1:8080/
 ```
 
-The server drops `upgrade-insecure-requests` and HSTS because it serves plain http locally. It writes its PID to `.local/server.pid` (if that folder exists) so it can be stopped without touching other processes.
+The server drops `upgrade-insecure-requests` and HSTS because it serves plain http locally. It only listens on `127.0.0.1`, answers 400 to badly encoded URLs and only serves public files from the folder (nothing starting with a dot, such as `.git` or `.local`, nothing outside the folder even through a symlink, and never `server.js`). It writes its PID to `.local/server.pid` so it can be stopped without touching other processes.
 
 You can also open `index.html` straight in the browser (`file://`); headers do not apply in that mode.
 
@@ -126,7 +127,8 @@ You can also open `index.html` straight in the browser (`file://`); headers do n
 - **Wind report:** the logic is in `assets/js/viento.js` (`recomendar` function): beaches, knots per course and the kite formula (m² ≈ weight / knots × 2.2 for 75 kg).
 - **Base URL:** `https://racha.danimefle.com` only appears in `canonical`, `og:url`, `og:image`, `twitter:image`, the home page JSON-LD, `sitemap.xml` and `robots.txt`. Internal links are relative. The analytics domain is separate: the `data-domain="racha.danimefle.com"` attribute of the Plausible script on every page.
 - **Removing `noindex`:** if the site becomes a real business, delete `<meta name="robots" content="noindex, follow">` from every page and review the legal texts.
-- **Form:** `assets/js/formulario.js` validates and clears without sending. Sending for real needs a form service, and its domain added to `form-action` and `connect-src` in `_headers`.
+- **Motion:** the tape, video, wind canvas, dune and map arrows stop with the "Pausar movimiento" button in the bar. With reduced motion the page loads paused and the button resumes them.
+- **Form:** `assets/js/formulario.js` validates and clears without sending. Fields have no `name` and the button starts disabled: without JavaScript nothing can be sent. Sending for real needs a form service, and its domain added to `form-action` and `connect-src` in `_headers`.
 
 ### Credits and licences
 
